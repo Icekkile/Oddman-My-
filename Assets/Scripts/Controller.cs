@@ -8,10 +8,11 @@ public class Controller : MonoBehaviour
 
     private void Update()
     {
-        if (!Input.GetMouseButtonDown(0)) return;
-        Vector2 pointToMove = ControllerInput();
-        pm.DetermineForce(pointToMove);
-        pm.Move(pointToMove);
+        if (Input.GetMouseButtonDown(0) || pm.dashTime > 0)
+        {
+            Vector2 pointToMove = ControllerInput();
+            pm.Move(pointToMove);
+        }
     }
 
     Vector2 ControllerInput ()

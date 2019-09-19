@@ -589,7 +589,7 @@ Transform:
   - {fileID: 1369427165}
   - {fileID: 901379026}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1926198129
 GameObject:
@@ -623,7 +623,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1419763383}
   maxForceMagitude: 50
-  forceParam: 3
+  Speed: 75
+  startDashTime: 0.25
+  dashTime: 0
 --- !u!114 &1926198131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -650,7 +652,7 @@ Transform:
   m_Children:
   - {fileID: 1419763380}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2047611136
 GameObject:

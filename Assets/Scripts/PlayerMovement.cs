@@ -6,20 +6,35 @@ public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
     public float maxForceMagitude;
-    public float forceParam;
+    public float Speed;
+    public float startDashTime;
+
+    public float dashTime;
     private float force;
+
+    private void Start()
+    {
+        dashTime = startDashTime;
+    }
 
     public void DetermineForce (Vector2 pointToMove)
     {
         if (pointToMove.magnitude >= maxForceMagitude)
-            force = maxForceMagitude * forceParam;
+            force = maxForceMagitude * Speed;
         else
-            force = pointToMove.magnitude * forceParam;
+            force = pointToMove.magnitude * Speed;
     }
 
     public void Move(Vector2 pointToMove)
     {
-        rb.velocity = pointToMove.normalized * force;
-        //rb.AddForce(pointToMove.normalized * force);
+        if (dashTime <= 0)
+        {
+            dashTime = startDashTime;
+            rb.velocity = Vector2.zero;
+            return;
+        }
+        DetermineForce(pointToMove);
+        dashTime -= Time.deltaTime;
+        rb.velocity = pointToMove.normalized * force * Time.deltaTime;
     }
 }
