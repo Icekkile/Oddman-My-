@@ -8,11 +8,15 @@ public class Controller : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) || pm.dashTime > 0)
+        float temp = 0;
+        if (Input.GetMouseButtonDown(0) || temp > 0)
         {
+            pm.rb.gravityScale = 0;
             Vector2 pointToMove = ControllerInput();
-            pm.Move(pointToMove);
+            temp = pm.Move(pointToMove);
+            return;
         }
+        pm.rb.gravityScale = 1;
     }
 
     Vector2 ControllerInput ()
