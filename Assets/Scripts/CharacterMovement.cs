@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class CharacterMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
     public float Speed;
 
     public float MinTargetSpeed, MaxTargetSpeed;
+    public float afterDashSpeedParam;
 
     private Vector2? _targetPoint;
+    ///////////////////////////////////////////////////////////////////////////////////////
     public Vector2? targetPoint
     {
         get => _targetPoint;
@@ -23,8 +25,11 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                rb.gravityScale = 1;
-                rb.velocity = Vector2.zero;
+                rb.gravityScale = 2;
+                if (rb.velocity != Vector2.zero)
+                    rb.velocity /= afterDashSpeedParam;
+                else
+                    rb.velocity = Vector2.zero;
             }
         }
     }
