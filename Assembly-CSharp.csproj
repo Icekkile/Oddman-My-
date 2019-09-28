@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\Enemy_SumoController.cs" />
     <Compile Include="Assets\Scripts\IController.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\PunchAction.cs" />
     <Compile Include="Assets\Scripts\PunchManager.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/MyCode/Oddman/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

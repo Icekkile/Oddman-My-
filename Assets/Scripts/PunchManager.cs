@@ -7,20 +7,36 @@ public class PunchManager : MonoBehaviour
 {
     public float punchParam;
 
-    Vector2 punchVector;
     List<Rigidbody2D> punchRBs;
 
-    public void SetNewPunchVector (Vector2 punch, Rigidbody2D punchRB)
+    public static PunchManager Instance { get; private set; }
+
+    private void Awake()
     {
-        punchVector += punch;
+        Instance = this;
+    }
+
+    private void Start()
+    {
+        punchRBs = new List<Rigidbody2D>();
+    }
+
+    public void SetNewPunchVector (Rigidbody2D punchRB)
+    {
         punchRBs.Add(punchRB);
+        Punch();
     }
 
     void Punch ()
     {
         foreach (Rigidbody2D rb in punchRBs)
         {
-
+            foreach (Rigidbody2D temp in punchRBs)
+            {
+                if (temp == rb) continue;
+                rb.velocity -= temp.velocity;
+            }
+            rb.velocity *= punchParam;
         }
     }
 }

@@ -26,8 +26,7 @@ public class PlayerController : MonoBehaviour , IController
     {
         _coolDown -= _coolDown <= 0 ? 0 : Time.deltaTime;
 
-        if (_coolDown > 0) return false;
-        return true;
+        return _coolDown <= 0;
     }
 
     public void SetTargetPoint(Vector2 TargetPoint)

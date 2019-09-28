@@ -11,7 +11,6 @@ public class CharacterMovement : MonoBehaviour
     public float afterDashSpeedParam;
 
     private Vector2? _targetPoint;
-    ///////////////////////////////////////////////////////////////////////////////////////
     public Vector2? targetPoint
     {
         get => _targetPoint;
@@ -19,13 +18,13 @@ public class CharacterMovement : MonoBehaviour
         {
             _targetPoint = value;
 
-            if(value != null)
+            if (value != null)
             {
                 rb.gravityScale = 0;
             }
             else
             {
-                rb.gravityScale = 2;
+                rb.gravityScale = 1;
                 if (rb.velocity != Vector2.zero)
                     rb.velocity /= afterDashSpeedParam;
                 else
@@ -37,14 +36,14 @@ public class CharacterMovement : MonoBehaviour
     private float force;
     private float tolerance = 0.01f;
 
-    public void DetermineForce (Vector2 pointToMove)
+    public void DetermineForce(Vector2 pointToMove)
     {
         float distanceToPoint = Vector2.Distance(pointToMove, (Vector2)rb.transform.position);
 
         force = Mathf.Clamp(distanceToPoint * Speed, MinTargetSpeed, MaxTargetSpeed);
     }
 
-    public void SetTargetPoint (Vector2 targetPointParam)
+    public void SetTargetPoint(Vector2? targetPointParam)
     {
         targetPoint = targetPointParam;
     }
@@ -65,7 +64,7 @@ public class CharacterMovement : MonoBehaviour
         }
         else
         {
-            targetPoint = null;
+            SetTargetPoint(null);
         }
     }
 
@@ -76,5 +75,10 @@ public class CharacterMovement : MonoBehaviour
         //moving
         DetermineForce(currentTargetPoint);// - method that ditermines value of force from point we need.
         rb.velocity = (currentTargetPoint - (Vector2)rb.transform.position).normalized * force;
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        SetTargetPoint(null);
     }
 }
