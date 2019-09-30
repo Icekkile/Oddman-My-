@@ -14,9 +14,20 @@ public class Enemy_SumoController : MonoBehaviour, IController
     {
         if (!CountCoolDown()) return;
 
-        SetTargetPoint(Player.transform.position);
-        _coolDown = CoolDown;
+        Vector2 temp = DetermineTargetPoint(Player.transform.position);
+        SetTargetPoint(temp);
 
+        _coolDown = Random.Range(CoolDown - 0.2f, CoolDown + 0.2f);
+
+    }
+
+    Vector2 DetermineTargetPoint (Vector2 strictPoint)
+    {
+        Vector2 temp = strictPoint;
+        //
+        
+        //
+        return temp;
     }
 
     public void SetTargetPoint (Vector2 targetPoint)
