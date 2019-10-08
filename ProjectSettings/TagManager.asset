@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Witness
   - Character
+  - Char_Killer
   layers:
   - Default
   - TransparentFX

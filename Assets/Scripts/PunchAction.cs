@@ -7,8 +7,6 @@ public class PunchAction : MonoBehaviour
 {
     public float punchParam;
 
-    PunchManager pm;
-
     Rigidbody2D _rigidbody;
 
     private void Awake()
@@ -18,7 +16,7 @@ public class PunchAction : MonoBehaviour
 
     private void Start()
     {
-        pm = PunchManager.Instance;
+
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
