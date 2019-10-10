@@ -9,7 +9,10 @@ public class CameraBehaviour : MonoBehaviour
     public Transform FBorder;
     public Transform SBorder;
 
+    public float camScaleByPlParam;
+
     private Camera camera;
+    private Vector2 plPos;
 
     private void Start()
     {
@@ -18,17 +21,31 @@ public class CameraBehaviour : MonoBehaviour
 
     private void Update()
     {
+        plPos = player.transform.position;
         CameraMove();
+        CameraScaleByPlayer(IsPlayerOutOfBorder());
     }
+
+    void CameraScaleByPlayer (bool isPlayerOut)
+    {
+        if (!isPlayerOut) return;
+        camera.orthographicSize = plPos.magnitude * camScaleByPlParam;
+    }
+
+    bool IsPlayerOutOfBorder ()
+    {
+        if (plPos.magnitude < 7f) return false;
+        return true;
+    }
+
+    //note: scaling by enemies
 
     private void CameraMove ()
     {
-        Vector2 temp = player.transform.position;
-
         Vector3 pointToMove = new Vector3
             (
-            Mathf.Clamp(temp.x, FBorder.position.x, SBorder.position.x), 
-            Mathf.Clamp(temp.y, FBorder.position.y, SBorder.position.y),
+            Mathf.Clamp(plPos.x, FBorder.position.x, SBorder.position.x), 
+            Mathf.Clamp(plPos.y, FBorder.position.y, SBorder.position.y),
             -10
             );
 
