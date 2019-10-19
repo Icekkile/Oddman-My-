@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour , IController
+public class PlayerController : MonoBehaviour , IController, IDieble
 {
     public CharacterMovement pm;
 
     public float CoolDown;
     private float _coolDown;
+
+    private void Start()
+    {
+        Death.instance.DeathEvent += OnDeath;
+    }
 
     private void Update()
     {
@@ -37,5 +42,11 @@ public class PlayerController : MonoBehaviour , IController
     Vector2 ControllerInput ()
     {
         return (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
+
+    public void OnDeath ()
+    {
+        Destroy(gameObject);
+        Death.instance.Clear();
     }
 }

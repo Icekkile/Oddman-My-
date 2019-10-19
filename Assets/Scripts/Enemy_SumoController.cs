@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_SumoController : MonoBehaviour, IController
+public class Enemy_SumoController : MonoBehaviour, IController, IDieble
 {
     public CharacterMovement em;
     public GameObject Player;
 
     public float CoolDown;
     private float _coolDown;
+
+    private void Start()
+    {
+        Death.instance.DeathEvent += OnDeath;
+    }
 
     private void Update()
     {
@@ -41,5 +46,11 @@ public class Enemy_SumoController : MonoBehaviour, IController
 
         if (_coolDown > 0) return false;
         return true;
+    }
+
+    public void OnDeath ()
+    {
+        Destroy(gameObject);
+        Death.instance.Clear();
     }
 }

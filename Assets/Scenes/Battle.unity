@@ -699,6 +699,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1489323200}
   - component: {fileID: 1489323201}
+  - component: {fileID: 1489323202}
   m_Layer: 0
   m_Name: GameWitness
   m_TagString: Witness
@@ -729,7 +730,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1489323199}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e532f15e45b71e469040f12385b94d8, type: 3}
+  m_Script: {fileID: 11500000, guid: 63ca9ce8ccfd72947bcf1ea6709b95b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Characters: []
+--- !u!114 &1489323202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489323199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d94d649224bca9478fc3bb46dd8b430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1545321835
@@ -1101,6 +1115,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8368445193304458015, guid: d7ceb6781f1614c44b9645420392bd74,
+        type: 3}
+      propertyPath: death
+      value: 
+      objectReference: {fileID: 1489323202}
     - target: {fileID: 6120330447855553050, guid: d7ceb6781f1614c44b9645420392bd74,
         type: 3}
       propertyPath: m_Name
@@ -1175,11 +1194,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Character
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992634652569442512, guid: d7ceb6781f1614c44b9645420392bd74,
-        type: 3}
-      propertyPath: punchParam
-      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4684486434269769324, guid: d7ceb6781f1614c44b9645420392bd74, type: 3}
@@ -1256,5 +1270,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3891817045798314391, guid: 9acf2d07a580ca14cb760e907b15567d,
+        type: 3}
+      propertyPath: death
+      value: 
+      objectReference: {fileID: 1489323202}
+    m_RemovedComponents:
+    - {fileID: 3647770623607456185, guid: 9acf2d07a580ca14cb760e907b15567d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9acf2d07a580ca14cb760e907b15567d, type: 3}

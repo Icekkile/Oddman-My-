@@ -4,30 +4,30 @@ using UnityEngine;
 
 public class Death : MonoBehaviour
 {
+    public static Death instance;
 
-
-    public delegate void DeathDeleg(GameObject diedGameObj);
+    public delegate void DeathDeleg();
     public event DeathDeleg DeathEvent;
 
     private void Awake()
     {
-        DeathEvent += OnDeath;
+        instance = this;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void Start()
     {
-        if (collision.collider.gameObject.tag != "Char_Killer") return;
+        DeathEvent = null;
+    }
+
+    public void EInvoke ()
+    {
         if (DeathEvent != null)
-            DeathEvent(gameObject);
+            DeathEvent();
     }
 
-    void OnDeath (GameObject diedGameObj)
+    public void Clear ()
     {
-        Destroy(diedGameObj);
-    }
-
-    public static void DeathDebug (string type)
-    {
-        Debug.Log($"{type} died!");
+        DeathEvent = null;
     }
 }
+

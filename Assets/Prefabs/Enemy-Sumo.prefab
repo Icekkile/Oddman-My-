@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6120330447855553060}
   - component: {fileID: 6120330447855553051}
   - component: {fileID: 1992634652569442512}
-  - component: {fileID: -7395045580566488502}
+  - component: {fileID: 8368445193304458015}
   m_Layer: 0
   m_Name: Enemy-Sumo
   m_TagString: Character
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   punchParam: 100
---- !u!114 &-7395045580566488502
+--- !u!114 &8368445193304458015
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,6 +176,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6120330447855553050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d94d649224bca9478fc3bb46dd8b430, type: 3}
+  m_Script: {fileID: 11500000, guid: e923d41c583ef3743a263a8a42ef9da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

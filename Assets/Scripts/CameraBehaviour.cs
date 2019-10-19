@@ -21,16 +21,9 @@ public class CameraBehaviour : MonoBehaviour
 
     private void Update()
     {
-        try
-        {
-            plPos = player.transform.position;
-            CameraMove();
-            CameraScaleByPlayer(IsPlayerOutOfBorder());
-        } catch
-        {
-            Death.DeathDebug("Player");
-        }
-        
+        plPos = player.transform.position;
+        CameraMove();
+        CameraScaleByPlayer(IsPlayerOutOfBorder());
     }
 
     void CameraScaleByPlayer (bool isPlayerOut)
