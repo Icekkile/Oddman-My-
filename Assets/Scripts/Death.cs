@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Death : MonoBehaviour
 {
+
+
     public delegate void DeathDeleg(GameObject diedGameObj);
     public event DeathDeleg DeathEvent;
 
@@ -21,6 +23,11 @@ public class Death : MonoBehaviour
 
     void OnDeath (GameObject diedGameObj)
     {
-        Debug.Log(diedGameObj.tag);
+        Destroy(diedGameObj);
+    }
+
+    public static void DeathDebug (string type)
+    {
+        Debug.Log($"{type} died!");
     }
 }
