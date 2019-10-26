@@ -297,10 +297,11 @@
 /define:CSHARP_7_3_OR_NEWER
 Assets\Scripts\BattleData.cs
 Assets\Scripts\CameraBehaviour.cs
+Assets\Scripts\Character.cs
 Assets\Scripts\CharacterMovement.cs
 Assets\Scripts\Death.cs
+Assets\Scripts\DeathTrigger.cs
 Assets\Scripts\Enemy_SumoController.cs
 Assets\Scripts\IController.cs
-Assets\Scripts\IDieble.cs
 Assets\Scripts\PlayerController.cs
 Assets\Scripts\PunchAction.cs

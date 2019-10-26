@@ -299,6 +299,7 @@ Assets\Scripts\BattleData.cs
 Assets\Scripts\CameraBehaviour.cs
 Assets\Scripts\CharacterMovement.cs
 Assets\Scripts\Death.cs
+Assets\Scripts\DeathTrigger.cs
 Assets\Scripts\Enemy_SumoController.cs
 Assets\Scripts\IController.cs
 Assets\Scripts\PlayerController.cs

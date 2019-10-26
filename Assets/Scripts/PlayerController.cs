@@ -2,51 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour , IController, IDieble
+public class PlayerController : MonoBehaviour
 {
-    public CharacterMovement pm;
-
-    public float CoolDown;
-    private float _coolDown;
-
-    private void Start()
-    {
-        Death.instance.DeathEvent += OnDeath;
-    }
+    public Controller controller;
 
     private void Update()
     {
-        if (!CountCoolDown()) return;
+        if (!controller.CountCoolDown()) return;
 
         if (Input.GetMouseButton(0))
         {
             Vector2 pointToMove = ControllerInput();
-            SetTargetPoint(pointToMove);
-            _coolDown = CoolDown;
+            controller.SetTargetPoint(pointToMove);
+            controller.Actioned();
         }
     }
 
-    //ok?
-    public bool CountCoolDown ()
-    {
-        _coolDown -= _coolDown <= 0 ? 0 : Time.deltaTime;
-
-        return _coolDown <= 0;
-    }
-
-    public void SetTargetPoint(Vector2 TargetPoint)
-    {
-        pm.SetTargetPoint(TargetPoint);
-    }
-
-    Vector2 ControllerInput ()
+    public Vector2 ControllerInput()
     {
         return (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    }
-
-    public void OnDeath ()
-    {
-        Destroy(gameObject);
-        Death.instance.Clear();
     }
 }

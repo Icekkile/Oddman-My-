@@ -1115,16 +1115,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8368445193304458015, guid: d7ceb6781f1614c44b9645420392bd74,
-        type: 3}
-      propertyPath: death
-      value: 
-      objectReference: {fileID: 1489323202}
     - target: {fileID: 6120330447855553050, guid: d7ceb6781f1614c44b9645420392bd74,
         type: 3}
       propertyPath: m_Name
       value: Enemy-Sumo
       objectReference: {fileID: 0}
+    - target: {fileID: 8368445193304458015, guid: d7ceb6781f1614c44b9645420392bd74,
+        type: 3}
+      propertyPath: death
+      value: 
+      objectReference: {fileID: 1489323202}
     - target: {fileID: 6120330447855553061, guid: d7ceb6781f1614c44b9645420392bd74,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1183,6 +1183,11 @@ PrefabInstance:
     - target: {fileID: 6120330447855553051, guid: d7ceb6781f1614c44b9645420392bd74,
         type: 3}
       propertyPath: Player
+      value: 
+      objectReference: {fileID: 1926198129}
+    - target: {fileID: 6120330447855553051, guid: d7ceb6781f1614c44b9645420392bd74,
+        type: 3}
+      propertyPath: player
       value: 
       objectReference: {fileID: 1926198129}
     - target: {fileID: 6120330449051188582, guid: d7ceb6781f1614c44b9645420392bd74,
@@ -1277,4 +1282,5 @@ PrefabInstance:
       objectReference: {fileID: 1489323202}
     m_RemovedComponents:
     - {fileID: 3647770623607456185, guid: 9acf2d07a580ca14cb760e907b15567d, type: 3}
+    - {fileID: 3891817045798314391, guid: 9acf2d07a580ca14cb760e907b15567d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9acf2d07a580ca14cb760e907b15567d, type: 3}
