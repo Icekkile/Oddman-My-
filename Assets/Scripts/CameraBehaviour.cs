@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class CameraBehaviour : MonoBehaviour
 {
-    public GameObject player;
-
     public Transform FBorder;
     public Transform SBorder;
 
@@ -21,7 +19,7 @@ public class CameraBehaviour : MonoBehaviour
 
     private void Update()
     {
-        plPos = player.transform.position;
+        plPos = BattleData.instance.Player.transform.position;
         CameraMove();
         CameraScaleByPlayer(IsPlayerOutOfBorder());
     }

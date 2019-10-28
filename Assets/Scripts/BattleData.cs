@@ -6,6 +6,7 @@ public class BattleData : MonoBehaviour
 {
     public static BattleData instance;
 
+    public GameObject Player;
     public List<GameObject> Characters;
 
     private void Start()
