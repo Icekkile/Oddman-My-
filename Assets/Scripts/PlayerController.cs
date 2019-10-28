@@ -8,13 +8,12 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (!controller.CountCoolDown()) return;
+        if (controller.actioned) return;
 
         if (Input.GetMouseButton(0))
         {
             Vector2 pointToMove = ControllerInput();
             controller.SetTargetPoint(pointToMove);
-            controller.Actioned();
         }
     }
 

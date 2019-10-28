@@ -9,25 +9,18 @@ public class Controller : MonoBehaviour, IController
     public float CoolDown;
     private float _coolDown;
 
-    private void Start()
+    public bool actioned;
+
+    public void Update ()
     {
-
-    }
-
-    public void Actioned ()
-    {
-        _coolDown = CoolDown;
-    }
-
-    public bool CountCoolDown()
-    {
-        _coolDown -= _coolDown <= 0 ? 0 : Time.deltaTime;
-
-        return _coolDown <= 0;
+        if (_coolDown > 0)
+            _coolDown -= Time.deltaTime;
+        actioned = _coolDown > 0;
     }
 
     public void SetTargetPoint(Vector2 TargetPoint)
     {
         pm.SetTargetPoint(TargetPoint);
+        _coolDown = CoolDown;
     }
 }

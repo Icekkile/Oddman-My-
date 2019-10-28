@@ -6,11 +6,6 @@ public class Character : MonoBehaviour
 {
     public IController m_Controller;
 
-    private void Awake()
-    {
-        
-    }
-
     public void OnDeath(GameObject killer)
     {
         Death.instance.EInvoke(gameObject, killer);
