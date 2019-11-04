@@ -19,7 +19,7 @@ public class CameraBehaviour : MonoBehaviour
 
     private void Update()
     {
-        plPos = BattleData.instance.Player.transform.position;
+        plPos = GameObject.FindGameObjectWithTag("Player").transform.position;
         CameraMove();
         CameraScaleByPlayer(IsPlayerOutOfBorder());
     }

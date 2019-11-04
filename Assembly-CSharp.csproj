@@ -62,19 +62,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\BattleData.cs" />
     <Compile Include="Assets\Scripts\CameraBehaviour.cs" />
-    <Compile Include="Assets\Scripts\Character.cs" />
-    <Compile Include="Assets\Scripts\CharacterMovement.cs" />
-    <Compile Include="Assets\Scripts\Controller.cs" />
     <Compile Include="Assets\Scripts\Death.cs" />
     <Compile Include="Assets\Scripts\DeathTrigger.cs" />
-    <Compile Include="Assets\Scripts\Enemy_SumoController.cs" />
-    <Compile Include="Assets\Scripts\IController.cs" />
-    <Compile Include="Assets\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\PunchAction.cs" />
+    <Compile Include="Assets\Scripts\Movement\Body.cs" />
+    <Compile Include="Assets\Scripts\Movement\CharacterMovement.cs" />
+    <Compile Include="Assets\Scripts\Movement\Enemy_SumoController.cs" />
+    <Compile Include="Assets\Scripts\Movement\IController.cs" />
+    <Compile Include="Assets\Scripts\Movement\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Movement\PunchAction.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/MyCode/Oddman/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.multiplayer-hlapi.Editor">
+      <HintPath>D:/MyCode/Oddman/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/MyCode/Oddman/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
@@ -88,11 +89,17 @@
     <Reference Include="Unity.CollabProxy.Editor">
       <HintPath>D:/MyCode/Oddman/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="com.unity.multiplayer-weaver.Editor">
+      <HintPath>D:/MyCode/Oddman/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>D:/MyCode/Oddman/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
       <HintPath>D:/MyCode/Oddman/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.multiplayer-hlapi.Runtime">
+      <HintPath>D:/MyCode/Oddman/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/MyCode/2019.1.8f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
