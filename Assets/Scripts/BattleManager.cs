@@ -7,6 +7,7 @@ public class BattleManager : NetworkBehaviour
 {
     public static BattleManager ins;
 
+<<<<<<< Updated upstream
     public GameObject ClientPlayer;
     public List<GameObject> ConnectedPlayers;
 
@@ -23,6 +24,11 @@ public class BattleManager : NetworkBehaviour
         RpcConnPlsChange(gm);
     }
     #endregion
+=======
+    public Body ClientPlayer;
+
+    public List<GameObject> allGMs;
+>>>>>>> Stashed changes
 
     #region init
 
@@ -31,6 +37,7 @@ public class BattleManager : NetworkBehaviour
         ins = this;
     }
 
+<<<<<<< Updated upstream
     private void Start()
     {
         ConnectedPlayers = new List<GameObject>();
@@ -42,5 +49,19 @@ public class BattleManager : NetworkBehaviour
     {
         if (ClientPlayer != null)
             ClientPlayer.tag = "Player";
+=======
+    #endregion
+
+    public void OnStartMyLocalPlayer()
+    {
+        if (ClientPlayer != null)
+            ClientPlayer.this_Gm.AddComponent<PlayerCard>();
+
+
+        GameObject[] gms = FindObjectsOfType<GameObject>();
+
+        foreach (GameObject gm in gms)
+            ins.allGMs.Add(gm);
+>>>>>>> Stashed changes
     }
 }
