@@ -27,7 +27,5 @@ public class PunchAction : MonoBehaviour
         float Impulse = collision.GetContact(0).normalImpulse;
 
         _rigidbody.AddForce(normal * Impulse * punchParam);
-
-        //pm.SetNewPunchVector(_rigidbody);
     }
 }

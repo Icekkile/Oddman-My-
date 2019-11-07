@@ -35,7 +35,7 @@ public class Body : MonoBehaviour
     public void OnDeath(GameObject killer)
     {
         Death.instance.EInvoke(gameObject, killer);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
