@@ -62,9 +62,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BattleManager.cs" />
     <Compile Include="Assets\Scripts\CameraBehaviour.cs" />
     <Compile Include="Assets\Scripts\Death.cs" />
-    <Compile Include="Assets\Scripts\DeathTrigger.cs" />
     <Compile Include="Assets\Scripts\Movement\Body.cs" />
     <Compile Include="Assets\Scripts\Movement\CharacterMovement.cs" />
     <Compile Include="Assets\Scripts\Movement\Enemy_SumoController.cs" />

@@ -15,6 +15,8 @@ public class PlayerController : NetworkBehaviour, IController
         CmdSayToBody();
     }
 
+    #region SayToBody
+
     [Command]
     public void CmdSayToBody ()
     {
@@ -31,8 +33,18 @@ public class PlayerController : NetworkBehaviour, IController
         }
     }
 
+    #endregion
+
     public Vector2 ControllerInput()
     {
         return (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
+
+
+
+    public override void OnStartLocalPlayer()
+    {
+        BattleManager.ins.ClientPlayer = gameObject;
+        BattleManager.ins.CmdConnPlsChange(gameObject);
     }
 }
