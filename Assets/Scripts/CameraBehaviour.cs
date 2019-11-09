@@ -9,20 +9,19 @@ public class CameraBehaviour : MonoBehaviour
 
     public float camScaleByPlParam;
 
-    private Camera camera;
+    private Camera m_camera;
     private Vector2 plPos;
 
     private void Start()
     {
-        camera = Camera.main;
+        m_camera = Camera.main;
     }
 
     private void Update()
     {
-        GameObject temp = GameObject.FindGameObjectWithTag("Player");
+        if (BattleData.ins.ClientPlayer == null) return;
 
-        if (temp == null)
-            return;
+        GameObject temp = BattleData.ins.ClientPlayer.this_Gm;
 
         plPos = temp.transform.position;
         CameraMove();
@@ -32,7 +31,7 @@ public class CameraBehaviour : MonoBehaviour
     void CameraScaleByPlayer (bool isPlayerOut)
     {
         if (!isPlayerOut) return;
-        camera.orthographicSize = plPos.magnitude * camScaleByPlParam;
+        m_camera.orthographicSize = plPos.magnitude * camScaleByPlParam;
     }
 
     bool IsPlayerOutOfBorder ()
@@ -53,6 +52,6 @@ public class CameraBehaviour : MonoBehaviour
             );
 
 
-        camera.transform.position = pointToMove;
+        m_camera.transform.position = pointToMove;
     }
 }

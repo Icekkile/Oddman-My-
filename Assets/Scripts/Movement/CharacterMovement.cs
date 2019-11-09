@@ -36,6 +36,8 @@ public class CharacterMovement : MonoBehaviour
     private float force;
     private float tolerance = 0.01f;
 
+
+
     public void DetermineForce(Vector2 pointToMove)
     {
         float distanceToPoint = Vector2.Distance(pointToMove, (Vector2)rb.transform.position);
@@ -50,6 +52,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void Update()
     {
+        rb = GetComponent<Rigidbody2D>();
         if (targetPoint != null)
         {
             GoToPointProcess();

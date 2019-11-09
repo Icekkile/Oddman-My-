@@ -12,11 +12,21 @@ public class Body : MonoBehaviour
     public float CoolDown;
     private float _coolDown;
 
+    public CardContainer card;
+
     public bool actioned { get; private set; }
 
     private void Awake()
     {
         this_Gm = gameObject;
+        card = GetComponent<CardContainer>();
+        pm = GetComponent<CharacterMovement>();
+
+    }
+
+    private void Start()
+    {
+        
     }
 
     public void Update()
@@ -40,7 +50,10 @@ public class Body : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.gameObject.tag != "Char_Killer")
+        GameObject gm = collision.collider.gameObject;
+        CardContainer cc = gm.GetComponent<CardContainer>();
+
+        if(cc == null || !cc.Contains("Char_Killer"))
             return;
 
         OnDeath(collision.collider.gameObject);
