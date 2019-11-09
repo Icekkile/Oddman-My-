@@ -1,9 +1,10 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - BattleManager
     - Body
     - CameraBehaviour
+    - CardContainer
+    - CardSystem
     - CharacterMovement
     - Death
     - Enemy_SumoController
@@ -11,7 +12,11 @@ ScriptsOnlyBuild:
     - PunchAction
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.TestListCacheData
+    com.unity.multiplayer-hlapi.Editor.dll:
+    - UnityEditor.NetworkBehaviourInspector
+    - UnityEditor.NetworkIdentityEditor
     com.unity.multiplayer-hlapi.Runtime.dll:
+    - UnityEngine.Networking.NetworkCallbacks
     - UnityEngine.Networking.NetworkIdentity
     - UnityEngine.Networking.NetworkManager
     - UnityEngine.Networking.NetworkManagerHUD
@@ -36,36 +41,36 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 61
       Script: {instanceID: 0}
-    - Class: 70
-      Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9330}
+      Script: {instanceID: 9280}
     - Class: 114
-      Script: {instanceID: 9646}
+      Script: {instanceID: 9332}
     - Class: 114
-      Script: {instanceID: 9784}
+      Script: {instanceID: 9648}
     - Class: 114
-      Script: {instanceID: 9988}
+      Script: {instanceID: 9786}
     - Class: 114
-      Script: {instanceID: 10004}
+      Script: {instanceID: 9990}
     - Class: 114
-      Script: {instanceID: 10008}
+      Script: {instanceID: 10010}
     - Class: 114
-      Script: {instanceID: 10058}
+      Script: {instanceID: 10060}
     - Class: 114
-      Script: {instanceID: 10142}
+      Script: {instanceID: 10080}
     - Class: 114
-      Script: {instanceID: 10158}
+      Script: {instanceID: 10146}
     - Class: 114
-      Script: {instanceID: 10180}
+      Script: {instanceID: 10162}
     - Class: 114
-      Script: {instanceID: 10416}
+      Script: {instanceID: 10184}
     - Class: 114
-      Script: {instanceID: 10814}
+      Script: {instanceID: 10420}
+    - Class: 114
+      Script: {instanceID: 10818}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -93,6 +98,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_Dropdown
+  - hash:
+      serializedVersion: 2
+      Hash: 04d8172efd18c0c2531cf2fae1ddbf68
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CardSystem
   - hash:
       serializedVersion: 2
       Hash: 5bd9a19c7b5f76c563418e28f48a561b
@@ -623,13 +634,7 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: 30784bc7559c004b23c7363d858e3535
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: BattleManager
-  - hash:
-      serializedVersion: 2
-      Hash: 5b231e31fba3ae04f5ca7663920cc16d
+      Hash: 6242c646309c70bed579d27ff0b937df
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Body
@@ -657,6 +662,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SpriteAnimator
+  - hash:
+      serializedVersion: 2
+      Hash: 6ab26c4cac7e9dc49521ead75283889b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CardContainer
   - hash:
       serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a

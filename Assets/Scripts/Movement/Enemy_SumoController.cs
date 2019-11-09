@@ -27,7 +27,7 @@ public class Enemy_SumoController : NetworkBehaviour, IController
 
     public GameObject FindBody ()
     {
-        List<GameObject> gms = new List<GameObject>(GameObject.FindGameObjectsWithTag("Character"));
+        List<GameObject> gms = CardSystem.ins.FindManyByCard("Body");
         gms.Remove(gameObject);
         GameObject nearest = gms[0];
         float dist = Vector2.Distance(controller.this_Gm.transform.position, nearest.transform.position);

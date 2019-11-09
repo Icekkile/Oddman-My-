@@ -7,6 +7,13 @@ public class PlayerController : NetworkBehaviour, IController
 {
     public Body controller;
 
+    private void Awake()
+    {
+        controller.card.Add("Body");
+        if (!isLocalPlayer) return;
+        controller.card.Add("Player");
+    }
+
     private void Update()
     {
         if (!isLocalPlayer) return;
@@ -38,13 +45,5 @@ public class PlayerController : NetworkBehaviour, IController
     public Vector2 ControllerInput()
     {
         return (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    }
-
-
-
-    public override void OnStartLocalPlayer()
-    {
-        BattleManager.ins.ClientPlayer = gameObject;
-        BattleManager.ins.CmdConnPlsChange(gameObject);
     }
 }

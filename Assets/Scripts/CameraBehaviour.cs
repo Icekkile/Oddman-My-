@@ -9,17 +9,17 @@ public class CameraBehaviour : MonoBehaviour
 
     public float camScaleByPlParam;
 
-    private Camera camera;
+    private Camera m_camera;
     private Vector2 plPos;
 
     private void Start()
     {
-        camera = Camera.main;
+        m_camera = Camera.main;
     }
 
     private void Update()
     {
-        GameObject temp = GameObject.FindGameObjectWithTag("Player");
+        GameObject temp = CardSystem.ins.FindByCard("Player");
 
         if (temp == null)
             return;
@@ -32,7 +32,7 @@ public class CameraBehaviour : MonoBehaviour
     void CameraScaleByPlayer (bool isPlayerOut)
     {
         if (!isPlayerOut) return;
-        camera.orthographicSize = plPos.magnitude * camScaleByPlParam;
+        m_camera.orthographicSize = plPos.magnitude * camScaleByPlParam;
     }
 
     bool IsPlayerOutOfBorder ()
@@ -53,6 +53,6 @@ public class CameraBehaviour : MonoBehaviour
             );
 
 
-        camera.transform.position = pointToMove;
+        m_camera.transform.position = pointToMove;
     }
 }

@@ -27,13 +27,13 @@ public class Death : MonoBehaviour
 
     public void EInvoke (GameObject killed, GameObject killer)
     {
-        if (DeathEvent != null)
-            DeathEvent(killed, killer);
+        if (instance.DeathEvent != null)
+            instance.DeathEvent(killed, killer);
     }
 
     private void Clear ()
     {
-        DeathEvent = null;
+        instance.DeathEvent = null;
     }
 }
 
