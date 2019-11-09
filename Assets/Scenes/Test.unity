@@ -833,6 +833,7 @@ GameObject:
   - component: {fileID: 1489323205}
   - component: {fileID: 1489323206}
   - component: {fileID: 1489323201}
+  - component: {fileID: 1489323203}
   m_Layer: 0
   m_Name: GameWitness
   m_TagString: Witness
@@ -879,6 +880,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d94d649224bca9478fc3bb46dd8b430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1489323203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489323199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aba24528f01c2e44e870740e7fb339cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ClientPlayer: {fileID: 0}
 --- !u!114 &1489323204
 MonoBehaviour:
   m_ObjectHideFlags: 0

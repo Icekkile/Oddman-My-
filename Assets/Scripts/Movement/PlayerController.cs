@@ -7,11 +7,12 @@ public class PlayerController : NetworkBehaviour, IController
 {
     public Body controller;
 
-    private void Awake()
+    private void Start()
     {
-        controller.card.Add("Body");
         if (!isLocalPlayer) return;
         controller.card.Add("Player");
+
+        BattleData.ins.ClientPlayer = controller;
     }
 
     private void Update()
@@ -19,25 +20,25 @@ public class PlayerController : NetworkBehaviour, IController
         if (!isLocalPlayer) return;
         if (controller.actioned) return;
 
-        CmdSayToBody();
+        if (Input.GetMouseButton(0))
+        {
+            Vector2 temp = ControllerInput();
+            CmdSayToBody(temp);
+        }
     }
 
     #region SayToBody
 
     [Command]
-    public void CmdSayToBody ()
+    public void CmdSayToBody (Vector2 destination)
     {
-        RpcSayToBody();
+        RpcSayToBody(destination);
     }
 
     [ClientRpc]
-    public void RpcSayToBody ()
+    public void RpcSayToBody (Vector2 destination)
     {
-        if (Input.GetMouseButton(0))
-        {
-            Vector2 pointToMove = ControllerInput();
-            controller.SetTargetPoint(pointToMove);
-        }
+        controller.SetTargetPoint(destination);
     }
 
     #endregion

@@ -20,14 +20,13 @@ public class Body : MonoBehaviour
     {
         this_Gm = gameObject;
         card = GetComponent<CardContainer>();
-        
+        pm = GetComponent<CharacterMovement>();
+
     }
 
     private void Start()
     {
-        GameObject go = CardSystem.ins.FindByCard("Player");
-        CharacterMovement cm = go.GetComponent<CharacterMovement>();
-        pm = cm;
+        
     }
 
     public void Update()

@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - BattleData
     - Body
     - CameraBehaviour
     - CardContainer
@@ -12,15 +13,13 @@ ScriptsOnlyBuild:
     - PunchAction
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.TestListCacheData
-    com.unity.multiplayer-hlapi.Editor.dll:
-    - UnityEditor.NetworkBehaviourInspector
-    - UnityEditor.NetworkIdentityEditor
     com.unity.multiplayer-hlapi.Runtime.dll:
     - UnityEngine.Networking.NetworkCallbacks
     - UnityEngine.Networking.NetworkIdentity
     - UnityEngine.Networking.NetworkManager
     - UnityEngine.Networking.NetworkManagerHUD
     - UnityEngine.Networking.NetworkStartPosition
+    - UnityEngine.Networking.NetworkTransform
   sceneClasses:
     Assets/Scenes/Test.unity:
     - Class: 1
@@ -50,27 +49,31 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9332}
     - Class: 114
+      Script: {instanceID: 9474}
+    - Class: 114
       Script: {instanceID: 9648}
     - Class: 114
       Script: {instanceID: 9786}
     - Class: 114
       Script: {instanceID: 9990}
     - Class: 114
-      Script: {instanceID: 10010}
+      Script: {instanceID: 10008}
     - Class: 114
-      Script: {instanceID: 10060}
+      Script: {instanceID: 10058}
     - Class: 114
-      Script: {instanceID: 10080}
+      Script: {instanceID: 10078}
     - Class: 114
-      Script: {instanceID: 10146}
+      Script: {instanceID: 10144}
     - Class: 114
-      Script: {instanceID: 10162}
+      Script: {instanceID: 10160}
     - Class: 114
-      Script: {instanceID: 10184}
+      Script: {instanceID: 10182}
     - Class: 114
-      Script: {instanceID: 10420}
+      Script: {instanceID: 10418}
     - Class: 114
-      Script: {instanceID: 10818}
+      Script: {instanceID: 10816}
+    - Class: 114
+      Script: {instanceID: 12646}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -860,6 +863,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: fc808ef75939bddfa6f369a78ba4cf21
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BattleData
   platform: 19
   scenePathNames:
   - Assets/Scenes/Test.unity

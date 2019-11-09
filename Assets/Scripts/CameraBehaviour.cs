@@ -19,10 +19,9 @@ public class CameraBehaviour : MonoBehaviour
 
     private void Update()
     {
-        GameObject temp = CardSystem.ins.FindByCard("Player");
+        if (BattleData.ins.ClientPlayer == null) return;
 
-        if (temp == null)
-            return;
+        GameObject temp = BattleData.ins.ClientPlayer.this_Gm;
 
         plPos = temp.transform.position;
         CameraMove();
