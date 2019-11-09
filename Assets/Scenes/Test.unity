@@ -503,7 +503,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f7138c72f333ee469e3c3e412496ea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Cards: []
+  startAdd:
+  - Killer
 --- !u!1 &1200770804 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 923675410996418440, guid: 6bb26706e6bfcb14bad4257edc5beacb,
@@ -522,7 +523,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f7138c72f333ee469e3c3e412496ea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Cards: []
+  startAdd:
+  - Killer
 --- !u!1 &1217233910 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7135275240051963006, guid: 1c2d6bb08eba69440876a0630668a7f3,
@@ -541,7 +543,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f7138c72f333ee469e3c3e412496ea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Cards: []
+  startAdd:
+  - Killer
 --- !u!1 &1297646212
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,6 +785,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5357561244120761373, guid: 294eeeeaf728b2749943ed8606aa6d8a,
+        type: 3}
+      propertyPath: startAdd.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5357561244120761373, guid: 294eeeeaf728b2749943ed8606aa6d8a,
+        type: 3}
+      propertyPath: startAdd.Array.data[0]
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 294eeeeaf728b2749943ed8606aa6d8a, type: 3}
@@ -1052,7 +1065,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f7138c72f333ee469e3c3e412496ea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Cards: []
+  startAdd:
+  - Killer
 --- !u!1 &1767109734
 GameObject:
   m_ObjectHideFlags: 0

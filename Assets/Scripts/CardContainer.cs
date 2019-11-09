@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CardContainer : MonoBehaviour
 {
-    public List<string> m_Cards;
+    List<string> m_Cards;
+    public List<string> startAdd;
 
     public void Add (string card)
     {
@@ -31,5 +32,6 @@ public class CardContainer : MonoBehaviour
     private void Start()
     {
         CardSystem.ins.AddToList(this);
+        m_Cards.AddRange(startAdd);
     }
 }

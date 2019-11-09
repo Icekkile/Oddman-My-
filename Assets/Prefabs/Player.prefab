@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f7138c72f333ee469e3c3e412496ea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Cards:
+  startAdd:
   - Body
 --- !u!212 &6381880905153326070
 SpriteRenderer:

@@ -53,7 +53,7 @@ public class Body : MonoBehaviour
         GameObject gm = collision.collider.gameObject;
         CardContainer cc = gm.GetComponent<CardContainer>();
 
-        if(cc == null || !cc.Contains("Char_Killer"))
+        if(cc == null || !cc.Contains("Killer"))
             return;
 
         OnDeath(collision.collider.gameObject);
