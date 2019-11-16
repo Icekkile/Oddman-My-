@@ -11,10 +11,7 @@ ScriptsOnlyBuild:
     - Enemy_SumoController
     - PlayerController
     - PunchAction
-    UnityEditor.TestRunner.dll:
-    - UnityEditor.TestTools.TestRunner.TestListCacheData
     com.unity.multiplayer-hlapi.Runtime.dll:
-    - UnityEngine.Networking.NetworkCallbacks
     - UnityEngine.Networking.NetworkIdentity
     - UnityEngine.Networking.NetworkManager
     - UnityEngine.Networking.NetworkManagerHUD
@@ -63,17 +60,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10078}
     - Class: 114
-      Script: {instanceID: 10144}
+      Script: {instanceID: 10090}
     - Class: 114
-      Script: {instanceID: 10160}
+      Script: {instanceID: 10146}
     - Class: 114
-      Script: {instanceID: 10182}
+      Script: {instanceID: 10162}
     - Class: 114
-      Script: {instanceID: 10418}
+      Script: {instanceID: 10184}
     - Class: 114
-      Script: {instanceID: 10816}
+      Script: {instanceID: 10420}
     - Class: 114
-      Script: {instanceID: 12646}
+      Script: {instanceID: 10818}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -667,10 +664,16 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
-      Hash: 6ab26c4cac7e9dc49521ead75283889b
+      Hash: 72b7a75cca6039b476f5b3d8389ceb79
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CardContainer
+  - hash:
+      serializedVersion: 2
+      Hash: fc808ef75939bddfa6f369a78ba4cf21
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BattleData
   - hash:
       serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
@@ -863,13 +866,7 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: fc808ef75939bddfa6f369a78ba4cf21
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: BattleData
   platform: 19
   scenePathNames:
   - Assets/Scenes/Test.unity
-  playerPath: D:/MyCode/Oddman/Builds/Oddman.exe
+  playerPath: C:/Users/Admin/Desktop/Oddman.exe
