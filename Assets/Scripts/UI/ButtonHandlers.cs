@@ -5,9 +5,16 @@ using UnityEngine.Networking.Match;
 
 public class ButtonHandlers : MonoBehaviour
 {
+    private AvailableMatches availableMatches;
+
+    private void OnEnable()
+    {
+        availableMatches = new AvailableMatches();
+    }
+
     public void PlayBattleButtonHandler ()
     {
-        List<MatchInfoSnapshot> matches = MatchMaker.ins.GetAvailableMatches();
+        List<MatchInfoSnapshot> matches = availableMatches.GetAvailableMatches();
 
         if (matches.Count != 0)
             MatchMaker.ins.ConnectInternetMatch();
