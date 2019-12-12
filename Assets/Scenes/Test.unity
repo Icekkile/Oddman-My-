@@ -1249,6 +1249,7 @@ GameObject:
   - component: {fileID: 1489323201}
   - component: {fileID: 1489323203}
   - component: {fileID: 1489323205}
+  - component: {fileID: 1489323206}
   m_Layer: 0
   m_Name: GameWitness
   m_TagString: Witness
@@ -1399,11 +1400,24 @@ MonoBehaviour:
   m_AllowFragmentation: 1
   m_MatchHost: mm.unet.unity3d.com
   m_MatchPort: 443
-  matchName: default
-  matchSize: 4
+  matchName: Knockouters
+  matchSize: 2
   isNetworkActive: 0
   matchMaker: {fileID: 0}
   MaxPosiblePlayers: 20
+  _matchMaker: {fileID: 0}
+--- !u!114 &1489323206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489323199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 807823945a239f24cba5e953d9245837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1545321835
 GameObject:
   m_ObjectHideFlags: 0
