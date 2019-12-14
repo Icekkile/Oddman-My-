@@ -79,29 +79,29 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9786}
     - Class: 114
-      Script: {instanceID: 9990}
+      Script: {instanceID: 9796}
     - Class: 114
-      Script: {instanceID: 10008}
+      Script: {instanceID: 9992}
     - Class: 114
-      Script: {instanceID: 10078}
+      Script: {instanceID: 10010}
     - Class: 114
-      Script: {instanceID: 10090}
+      Script: {instanceID: 10080}
     - Class: 114
-      Script: {instanceID: 10146}
+      Script: {instanceID: 10092}
     - Class: 114
-      Script: {instanceID: 10162}
+      Script: {instanceID: 10148}
     - Class: 114
-      Script: {instanceID: 10184}
+      Script: {instanceID: 10164}
     - Class: 114
-      Script: {instanceID: 10420}
+      Script: {instanceID: 10186}
     - Class: 114
-      Script: {instanceID: 10754}
+      Script: {instanceID: 10422}
     - Class: 114
-      Script: {instanceID: 10796}
+      Script: {instanceID: 10756}
     - Class: 114
-      Script: {instanceID: 10842}
+      Script: {instanceID: 10798}
     - Class: 114
-      Script: {instanceID: 12028}
+      Script: {instanceID: 10844}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -613,6 +613,12 @@ ScriptsOnlyBuild:
     className: Enemy_SumoController
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AvailableMatches
+  - hash:
+      serializedVersion: 2
       Hash: 303ad70ce203ad874efe2965d0fbcff9
     assemblyName: Unity.Analytics.Tracker.dll
     namespaceName: UnityEngine.Analytics
@@ -923,12 +929,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: AvailableMatches
   platform: 19
   scenePathNames:
   - Assets/Scenes/Test.unity
