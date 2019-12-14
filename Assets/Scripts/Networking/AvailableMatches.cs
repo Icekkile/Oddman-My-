@@ -7,20 +7,30 @@ using UnityEngine.Networking;
 public class AvailableMatches : MonoBehaviour
 {
     private static List<MatchInfoSnapshot> availableMatches;
+    private float refreshTime;
 
     private void OnEnable()
     {
         availableMatches = new List<MatchInfoSnapshot>();
     }
 
+    private void Update()
+    {
+        if (Time.time >= refreshTime)
+        {
+            RefreshMatches();
+        }
+    }
+
     public List<MatchInfoSnapshot> GetAvailableMatches ()
     {
-        RefreshMatches();
         return availableMatches;
     }
 
     private void RefreshMatches ()
     {
+        refreshTime = Time.time + 5f;
+
         MatchMaker.ins._matchMaker.ListMatches
             (
             0,
@@ -33,8 +43,9 @@ public class AvailableMatches : MonoBehaviour
             );
     }
 
-    private void ListMatchesReturn (bool success, string extendedInfo, List<MatchInfoSnapshot> matches)
+    public void ListMatchesReturn (bool success, string extendedInfo, List<MatchInfoSnapshot> matches)
     {
         availableMatches = matches;
+        Debug.Log(string.Join(" ", availableMatches));
     }
 }
