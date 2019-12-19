@@ -3,50 +3,56 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.Networking.Match;
+using UnityEngine.SceneManagement;
 
 public class MatchMaker : NetworkManager
 {
     public static MatchMaker ins;
 
-    public int MaxPosiblePlayers;
     public NetworkMatch _matchMaker;
 
-    public GameObject MenuCanvas;
-    public GameObject EndGameCanvas;
-
-    private AvailableMatches _refAvailableMatches;
+    private int isHosting;
+    public MatchInfo curMatch;
 
     void Start()
     {
         ins = this;
         singleton.StartMatchMaker();
         _matchMaker = singleton.matchMaker;
-        _refAvailableMatches = new AvailableMatches();
     }
 
-    //call this method to request a match to be created on the server
+    public void PlayInternetMatch ()
+    {
+        List<MatchInfoSnapshot> matches = AvailableMatches.GetAvailableMatches();
+
+        if (matches.Count <= 0)
+            CreateInternetMatch();
+        else if (matches.Count > 0)
+            ConnectInternetMatch(matches);
+    }
+
+
     public void CreateInternetMatch()
     {
-        _matchMaker.CreateMatch("Knockouters", 4, true, "", "", "", 0, 0, OnInternetMatchCreate);
+        _matchMaker.CreateMatch("Knockouters", 2, true, "", "", "", 0, 0, OnInternetMatchCreate);
     }
 
-    //this method is called when your request for creating a match is returned
     private void OnInternetMatchCreate(bool success, string extendedInfo, MatchInfo matchInfo)
     {
         if (!success)
             return;
 
-        MatchInfo hostInfo = matchInfo;
+        curMatch = matchInfo;
 
-        MenuCanvas.SetActive(false);
-        singleton.StartHost(hostInfo);
+        SceneManager.LoadScene("Battle");
+        singleton.StartHost(curMatch);
+        isHosting = 1;
     }
 
-    //this method is called when a list of matches is returned
-    public void ConnectInternetMatch()
-    {
-        List<MatchInfoSnapshot> matches = _refAvailableMatches.GetAvailableMatches();
 
+
+    public void ConnectInternetMatch(List<MatchInfoSnapshot> matches)
+    {
         if (matches.Count == 0)
             return;
         
@@ -57,16 +63,30 @@ public class MatchMaker : NetworkManager
 
     }
 
-    //this method is called when your request to join a match is returned
     private void OnJoinInternetMatch(bool success, string extendedInfo, MatchInfo matchInfo)
     {
-        if (success)
-        {
-            MatchInfo hostInfo = matchInfo;
-            MenuCanvas.SetActive(false);
+        if (!success)
+            return;
+
+        curMatch = matchInfo;
+
+        SceneManager.LoadScene("Battle");
+        singleton.StartClient(curMatch);
+        isHosting = 2;
+    }
 
 
-            singleton.StartClient(hostInfo);
-        }
+
+    public void DisconnectInternetMatch ()
+    {
+        if (isHosting == 1)
+            _matchMaker.DestroyMatch(curMatch.networkId, 0, OnDisconnectedMatch);
+        else if (isHosting == 2)
+            _matchMaker.DropConnection(curMatch.networkId, curMatch.nodeId, 0, OnDisconnectedMatch);
+    }
+
+    private void OnDisconnectedMatch(bool success, string extendedInfo)
+    {
+        SceneManager.LoadScene("EndGame");
     }
 }

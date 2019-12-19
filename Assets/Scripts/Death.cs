@@ -2,11 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum EDeathReason
-{
-
-}
-
 public class Death : MonoBehaviour
 {
     public static Death instance;

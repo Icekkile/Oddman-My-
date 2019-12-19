@@ -24,11 +24,6 @@ public class Body : MonoBehaviour
 
     }
 
-    private void Start()
-    {
-        
-    }
-
     public void Update()
     {
         if (_coolDown > 0)
