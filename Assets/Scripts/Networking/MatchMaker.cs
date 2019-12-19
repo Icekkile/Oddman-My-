@@ -11,6 +11,8 @@ public class MatchMaker : NetworkManager
     public int MaxPosiblePlayers;
     public NetworkMatch _matchMaker;
 
+    public GameObject MenuCanvas;
+
     private AvailableMatches _refAvailableMatches;
 
     void Start()
@@ -20,8 +22,6 @@ public class MatchMaker : NetworkManager
         _matchMaker = singleton.matchMaker;
         _refAvailableMatches = new AvailableMatches();
     }
-
-
 
     //call this method to request a match to be created on the server
     public void CreateInternetMatch()
@@ -37,11 +37,9 @@ public class MatchMaker : NetworkManager
 
         MatchInfo hostInfo = matchInfo;
 
-        UIController.ins.SetActive(false);
+        MenuCanvas.SetActive(false);
         singleton.StartHost(hostInfo);
     }
-
-
 
     //this method is called when a list of matches is returned
     public void ConnectInternetMatch()
@@ -64,7 +62,7 @@ public class MatchMaker : NetworkManager
         if (success)
         {
             MatchInfo hostInfo = matchInfo;
-            UIController.ins.SetActive(false);
+            MenuCanvas.SetActive(false);
 
 
             singleton.StartClient(hostInfo);

@@ -76,7 +76,6 @@
     <Compile Include="Assets\Scripts\Networking\AvailableMatches.cs" />
     <Compile Include="Assets\Scripts\Networking\MatchMaker.cs" />
     <Compile Include="Assets\Scripts\UI\ButtonHandlers.cs" />
-    <Compile Include="Assets\Scripts\UI\UIController.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/MyCode/Oddman/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
