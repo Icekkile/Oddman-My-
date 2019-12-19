@@ -22,7 +22,7 @@ public class AvailableMatches : MonoBehaviour
         }
     }
 
-    public List<MatchInfoSnapshot> GetAvailableMatches ()
+    public static List<MatchInfoSnapshot> GetAvailableMatches ()
     {
         return availableMatches;
     }
