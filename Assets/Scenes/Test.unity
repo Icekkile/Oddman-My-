@@ -615,14 +615,13 @@ GameObject:
   - component: {fileID: 771932880}
   - component: {fileID: 771932879}
   - component: {fileID: 771932878}
-  - component: {fileID: 771932882}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &771932878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -703,19 +702,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &771932882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 771932877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0526b91fe96d1ad4ea434b9e4033465e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 771932880}
 --- !u!1 &839682267
 GameObject:
   m_ObjectHideFlags: 0
@@ -1406,6 +1392,7 @@ MonoBehaviour:
   matchMaker: {fileID: 0}
   MaxPosiblePlayers: 20
   _matchMaker: {fileID: 0}
+  MenuCanvas: {fileID: 771932877}
 --- !u!114 &1489323206
 MonoBehaviour:
   m_ObjectHideFlags: 0
