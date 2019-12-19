@@ -12,6 +12,7 @@ public class MatchMaker : NetworkManager
     public NetworkMatch _matchMaker;
 
     public GameObject MenuCanvas;
+    public GameObject EndGameCanvas;
 
     private AvailableMatches _refAvailableMatches;
 
