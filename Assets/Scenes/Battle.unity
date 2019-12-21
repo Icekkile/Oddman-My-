@@ -1067,8 +1067,6 @@ MonoBehaviour:
   matchSize: 2
   isNetworkActive: 0
   matchMaker: {fileID: 0}
-  uiControls: {fileID: 0}
-  MaxPosiblePlayers: 20
   _matchMaker: {fileID: 0}
 --- !u!114 &1489323206
 MonoBehaviour:

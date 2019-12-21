@@ -14,9 +14,8 @@ public class MatchMaker : NetworkManager
     private int isHosting;
     public MatchInfo curMatch;
 
-    void Start()
+    public void StartThis()
     {
-        ins = this;
         singleton.StartMatchMaker();
         _matchMaker = singleton.matchMaker;
     }
@@ -31,7 +30,7 @@ public class MatchMaker : NetworkManager
             ConnectInternetMatch(matches);
     }
 
-
+    #region Match Create
     public void CreateInternetMatch()
     {
         _matchMaker.CreateMatch("Knockouters", 2, true, "", "", "", 0, 0, OnInternetMatchCreate);
@@ -48,9 +47,9 @@ public class MatchMaker : NetworkManager
         singleton.StartHost(curMatch);
         isHosting = 1;
     }
+    #endregion
 
-
-
+    #region Match Connect
     public void ConnectInternetMatch(List<MatchInfoSnapshot> matches)
     {
         if (matches.Count == 0)
@@ -74,8 +73,9 @@ public class MatchMaker : NetworkManager
         singleton.StartClient(curMatch);
         isHosting = 2;
     }
+    #endregion
 
-
+    #region Match Disconnect
 
     public void DisconnectInternetMatch ()
     {
@@ -87,6 +87,9 @@ public class MatchMaker : NetworkManager
 
     private void OnDisconnectedMatch(bool success, string extendedInfo)
     {
+        isHosting = 0;
         SceneManager.LoadScene("EndGame");
     }
+
+    #endregion
 }
