@@ -9,6 +9,5 @@ public class ButtonHandlers : MonoBehaviour
     public void PlayBattleButtonHandler ()
     {
         SceneManager.LoadScene("Battle");
-        MatchMaker.ins.PlayInternetMatch();
     }
 }

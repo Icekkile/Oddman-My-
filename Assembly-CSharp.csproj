@@ -75,7 +75,6 @@
     <Compile Include="Assets\Scripts\Movement\PunchAction.cs" />
     <Compile Include="Assets\Scripts\Networking\AvailableMatches.cs" />
     <Compile Include="Assets\Scripts\Networking\MatchMaker.cs" />
-    <Compile Include="Assets\Scripts\Networking\StartMatchMakerScript.cs" />
     <Compile Include="Assets\Scripts\UI\ButtonHandlers.cs" />
     <Compile Include="Assets\Scripts\UI\UIControls.cs" />
     <Reference Include="Unity.Timeline.Editor">
