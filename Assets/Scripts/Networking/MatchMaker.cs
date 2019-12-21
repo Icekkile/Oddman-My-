@@ -5,19 +5,30 @@ using UnityEngine.Networking;
 using UnityEngine.Networking.Match;
 using UnityEngine.SceneManagement;
 
+enum PlayerStatements
+{
+    NoMatch,
+    Host,
+    Client
+}
+
 public class MatchMaker : NetworkManager
 {
     public static MatchMaker ins;
 
     public NetworkMatch _matchMaker;
 
-    private int isHosting;
+    private PlayerStatements playerStatements = PlayerStatements.NoMatch;
     public MatchInfo curMatch;
 
-    public void StartThis()
+    public void Start()
     {
+        ins = this;
         singleton.StartMatchMaker();
         _matchMaker = singleton.matchMaker;
+        Death.instance.DeathEvent += DisconnectInternetMatch;
+        PlayInternetMatch();
+
     }
 
     public void PlayInternetMatch ()
@@ -43,9 +54,8 @@ public class MatchMaker : NetworkManager
 
         curMatch = matchInfo;
 
-        SceneManager.LoadScene("Battle");
         singleton.StartHost(curMatch);
-        isHosting = 1;
+        playerStatements = PlayerStatements.Host;
     }
     #endregion
 
@@ -69,26 +79,25 @@ public class MatchMaker : NetworkManager
 
         curMatch = matchInfo;
 
-        SceneManager.LoadScene("Battle");
         singleton.StartClient(curMatch);
-        isHosting = 2;
+        playerStatements = PlayerStatements.Client;
     }
     #endregion
 
     #region Match Disconnect
 
-    public void DisconnectInternetMatch ()
+    public void DisconnectInternetMatch (GameObject killed, GameObject killer)
     {
-        if (isHosting == 1)
+        if (playerStatements == PlayerStatements.Host)
             _matchMaker.DestroyMatch(curMatch.networkId, 0, OnDisconnectedMatch);
-        else if (isHosting == 2)
+        else if (playerStatements == PlayerStatements.Client)
             _matchMaker.DropConnection(curMatch.networkId, curMatch.nodeId, 0, OnDisconnectedMatch);
     }
 
     private void OnDisconnectedMatch(bool success, string extendedInfo)
     {
-        isHosting = 0;
-        SceneManager.LoadScene("EndGame");
+        playerStatements = PlayerStatements.NoMatch;
+        SceneManager.LoadScene("EndMenu");
     }
 
     #endregion
