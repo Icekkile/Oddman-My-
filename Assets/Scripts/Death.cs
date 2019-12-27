@@ -6,7 +6,7 @@ public class Death : MonoBehaviour
 {
     public static Death instance;
 
-    public delegate void DeathDeleg(GameObject killed, GameObject killer);
+    public delegate void DeathDeleg(MatchResults result, GameObject killed, GameObject killer);
     public event DeathDeleg DeathEvent;
 
     private void Awake()
@@ -23,7 +23,7 @@ public class Death : MonoBehaviour
     public void EInvoke (GameObject killed, GameObject killer)
     {
         if (instance.DeathEvent != null)
-            instance.DeathEvent(killed, killer);
+            instance.DeathEvent(MatchResults.Lose, killed, killer);
     }
 
     private void Clear ()

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IController 
+public class EndMenuUIControls : MonoBehaviour
 {
-    void RpcSayToBody(Vector2 destination);
+
 }
