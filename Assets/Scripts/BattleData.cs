@@ -16,6 +16,11 @@ public class BattleData : MonoBehaviour
 
     public Body ClientPlayer;
     public MatchResults matchResult;
+    public int TrophiesBonus;
+    public int MoneyBonus;
+
+    private float StartTime;
+    private float EndTime;
 
     private void Awake()
     {
@@ -24,6 +29,19 @@ public class BattleData : MonoBehaviour
 
     public void StartNew ()
     {
+        StartTime = Time.time;
+    }
+
+    public void EndThis ()
+    {
         ClientPlayer = null;
+        EndTime = StartTime - Time.time;
+        CountBonuses();
+    }
+
+    public void CountBonuses ()
+    {
+        //Counting your bonus money from EndTime
+        //Counting your bonus trophies from your rating
     }
 }

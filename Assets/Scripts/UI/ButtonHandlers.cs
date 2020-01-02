@@ -12,4 +12,9 @@ public class ButtonHandlers : MonoBehaviour
     {
         uiControls.ShowBattle();
     }
+
+    public void ContinueButtonHandler()
+    {
+        uiControls.ShowMenu();
+    }
 }
