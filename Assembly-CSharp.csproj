@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\CardSystem\CardContainer.cs" />
     <Compile Include="Assets\Scripts\CardSystem\CardSystem.cs" />
     <Compile Include="Assets\Scripts\Death.cs" />
+    <Compile Include="Assets\Scripts\GameData.cs" />
     <Compile Include="Assets\Scripts\Movement\Body.cs" />
     <Compile Include="Assets\Scripts\Movement\CharacterMovement.cs" />
     <Compile Include="Assets\Scripts\Movement\Enemy_SumoController.cs" />

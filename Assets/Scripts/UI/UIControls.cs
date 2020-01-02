@@ -9,7 +9,8 @@ public class UIControls : MonoBehaviour
 
     public void ShowMenu ()
     {
-        
+        MenuCanvas.SetActive(true);
+        EndCanvas.SetActive(false);
     }
 
     public void ShowBattle ()
@@ -23,6 +24,9 @@ public class UIControls : MonoBehaviour
 
     public void ShowEnd ()
     {
-        
+        //StopBattle();
+        BattleData.ins.EndThis();
+        MenuCanvas.SetActive(false);
+        EndCanvas.SetActive(true);
     }
 } 
