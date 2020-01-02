@@ -9,7 +9,7 @@ public class AvailableMatches : MonoBehaviour
     private static List<MatchInfoSnapshot> availableMatches;
     private float refreshTime;
 
-    private void OnEnable()
+    private void Start()
     {
         availableMatches = new List<MatchInfoSnapshot>();
     }
@@ -29,7 +29,7 @@ public class AvailableMatches : MonoBehaviour
 
     private void RefreshMatches ()
     {
-        refreshTime = Time.time + 5f;
+        refreshTime = Time.time + 1f;
 
         MatchMaker.ins._matchMaker.ListMatches
             (
@@ -46,6 +46,6 @@ public class AvailableMatches : MonoBehaviour
     public void ListMatchesReturn (bool success, string extendedInfo, List<MatchInfoSnapshot> matches)
     {
         availableMatches = matches;
-        Debug.Log(string.Join(" ", availableMatches));
+        Debug.Log(availableMatches.Count);
     }
 }

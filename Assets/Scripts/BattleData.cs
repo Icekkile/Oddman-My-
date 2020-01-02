@@ -22,10 +22,8 @@ public class BattleData : MonoBehaviour
         ins = this;
     }
 
-
-    public void EndBattleClearing()
+    public void StartNew ()
     {
         ClientPlayer = null;
-
     }
 }

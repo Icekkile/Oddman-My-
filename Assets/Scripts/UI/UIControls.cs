@@ -4,10 +4,25 @@ using UnityEngine;
 
 public class UIControls : MonoBehaviour
 {
-    [SerializeField]
-    public GameObject MenuCanvas { get; private set; }
+    public GameObject MenuCanvas;
+    public GameObject EndCanvas;
 
-    [SerializeField]
-    public GameObject EndGameCanvas { get; private set; }
+    public void ShowMenu ()
+    {
+        
+    }
 
-}
+    public void ShowBattle ()
+    {
+        BattleData.ins.StartNew();
+        MenuCanvas.SetActive(false);
+        EndCanvas.SetActive(false);
+
+        MatchMaker.ins.PlayInternetMatch();
+    }
+
+    public void ShowEnd ()
+    {
+        
+    }
+} 

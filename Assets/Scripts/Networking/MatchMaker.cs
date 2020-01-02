@@ -16,6 +16,8 @@ public class MatchMaker : NetworkManager
 {
     public static MatchMaker ins;
 
+    public UIControls uiControls;
+
     public NetworkMatch _matchMaker;
 
     private MatchResults matchResult;
@@ -26,18 +28,19 @@ public class MatchMaker : NetworkManager
     public void Start()
     {
         ins = this;
-
         singleton.StartMatchMaker();
         _matchMaker = singleton.matchMaker;
-        PlayInternetMatch();
+        Death.instance.DeathEvent += LoseMe;
     }
 
     private void Update()
     {
-        if (NetworkServer.connections.Count != 1)
-            return;
-        matchResult = MatchResults.Win;
-
+        if (NetworkServer.connections.Count == 0 && playerStatements == PlayerStatements.Host)
+        {
+            _matchMaker.DestroyMatch(curMatch.networkId, 0, delegate (bool success, string extendedInfo) { });
+            playerStatements = PlayerStatements.NoMatch;
+        }
+        
     }
 
     public void PlayInternetMatch ()
@@ -89,26 +92,31 @@ public class MatchMaker : NetworkManager
     #endregion
 
     #region Match End
-    public void StartFinishingMatch (MatchResults result, GameObject killed, GameObject killer)
+
+    public void WinMe ()
+    {
+        DisconnectInternetMatch(MatchResults.Win);
+    }
+
+    public void LoseMe (MatchResults result, GameObject killed, GameObject killer)
+    {
+        NetSender.ins.CmdSendDied();
+        DisconnectInternetMatch(MatchResults.Lose);
+    }
+
+    public void DisconnectInternetMatch (MatchResults result)
     {
         matchResult = result;
-        DisconnectInternetMatch();
-    }
 
-    public void DisconnectInternetMatch ()
-    {
-        if (playerStatements == PlayerStatements.Host)
-            _matchMaker.DestroyMatch(curMatch.networkId, 0, EndMatch);
-        else if (playerStatements == PlayerStatements.Client)
-            _matchMaker.DropConnection(curMatch.networkId, curMatch.nodeId, 0, EndMatch);
-    }
+        _matchMaker.DropConnection(curMatch.networkId, curMatch.nodeId, 0, delegate (bool success, string extendedInfo) { });
 
-    public void EndMatch(bool success, string extendedInfo)
-    {
-        playerStatements = PlayerStatements.NoMatch;
+
         BattleData.ins.matchResult = matchResult;
-        BattleData.ins.EndBattleClearing();
-        SceneManager.LoadScene("EndMenu");
+
+        if (playerStatements == PlayerStatements.Client)
+            playerStatements = PlayerStatements.NoMatch;
+
+        uiControls.ShowEnd();
     }
-    #endregion 
+    #endregion
 }
