@@ -10,11 +10,13 @@ ScriptsOnlyBuild:
     - CardSystem
     - CharacterMovement
     - Death
+    - EndMenuUIControls
     - Enemy_SumoController
     - MatchMaker
+    - NetSender
     - PlayerController
     - PunchAction
-    - UIController
+    - UIControls
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
@@ -25,13 +27,17 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
     - UnityEngine.UI.Text
+    com.unity.multiplayer-hlapi.Editor.dll:
+    - UnityEditor.NetworkBehaviourInspector
+    - UnityEditor.NetworkIdentityEditor
+    - UnityEditor.NetworkTransformEditor
     com.unity.multiplayer-hlapi.Runtime.dll:
     - UnityEngine.Networking.NetworkCallbacks
     - UnityEngine.Networking.NetworkIdentity
     - UnityEngine.Networking.NetworkStartPosition
     - UnityEngine.Networking.NetworkTransform
   sceneClasses:
-    Assets/Scenes/Test.unity:
+    Assets/Scenes/Battle.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -77,31 +83,33 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9648}
     - Class: 114
-      Script: {instanceID: 9786}
+      Script: {instanceID: 9788}
     - Class: 114
-      Script: {instanceID: 9796}
+      Script: {instanceID: 9798}
     - Class: 114
-      Script: {instanceID: 9992}
+      Script: {instanceID: 9874}
     - Class: 114
-      Script: {instanceID: 10010}
+      Script: {instanceID: 9996}
     - Class: 114
-      Script: {instanceID: 10080}
+      Script: {instanceID: 10014}
     - Class: 114
-      Script: {instanceID: 10092}
+      Script: {instanceID: 10084}
     - Class: 114
-      Script: {instanceID: 10148}
+      Script: {instanceID: 10096}
     - Class: 114
-      Script: {instanceID: 10164}
+      Script: {instanceID: 10152}
     - Class: 114
-      Script: {instanceID: 10186}
+      Script: {instanceID: 10168}
     - Class: 114
-      Script: {instanceID: 10422}
+      Script: {instanceID: 10190}
     - Class: 114
-      Script: {instanceID: 10756}
+      Script: {instanceID: 10426}
     - Class: 114
-      Script: {instanceID: 10798}
+      Script: {instanceID: 10760}
     - Class: 114
-      Script: {instanceID: 10844}
+      Script: {instanceID: 10802}
+    - Class: 114
+      Script: {instanceID: 23148}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -109,6 +117,53 @@ ScriptsOnlyBuild:
     - Class: 157
       Script: {instanceID: 0}
     - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/EndMenu.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 9376}
+    - Class: 114
+      Script: {instanceID: 9378}
+    - Class: 114
+      Script: {instanceID: 9384}
+    - Class: 114
+      Script: {instanceID: 9390}
+    - Class: 114
+      Script: {instanceID: 9398}
+    - Class: 114
+      Script: {instanceID: 9434}
+    - Class: 114
+      Script: {instanceID: 9436}
+    - Class: 114
+      Script: {instanceID: 9712}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -601,6 +656,12 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EndMenuUIControls
+  - hash:
+      serializedVersion: 2
       Hash: 780e8f682b3221346c034a6712a0fd25
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -647,6 +708,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ControlTrack
+  - hash:
+      serializedVersion: 2
+      Hash: faa11ded28d98124a44101b4f856099d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UIControls
   - hash:
       serializedVersion: 2
       Hash: 265cf27ba050d55ff33a8acab4ded6c0
@@ -715,7 +782,7 @@ ScriptsOnlyBuild:
     className: CardContainer
   - hash:
       serializedVersion: 2
-      Hash: fc808ef75939bddfa6f369a78ba4cf21
+      Hash: d0439e6c2d04dec1cef826ab4479f547
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BattleData
@@ -871,7 +938,7 @@ ScriptsOnlyBuild:
     className: NetworkAnimator
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: ea1ad2045837e8648434109267f691db
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ButtonHandlers
@@ -889,7 +956,7 @@ ScriptsOnlyBuild:
     className: TMP_ColorGradient
   - hash:
       serializedVersion: 2
-      Hash: e3c924fc52002ce6abe4531675f86189
+      Hash: 48efe9f0b11b5e545fbee831582336ad
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MatchMaker
@@ -913,12 +980,6 @@ ScriptsOnlyBuild:
     className: TMP_SubMesh
   - hash:
       serializedVersion: 2
-      Hash: e9539b36af987b1fc4d5169f5d2f3d29
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: UIController
-  - hash:
-      serializedVersion: 2
       Hash: 8220b46879dc5e37db1b940c938f5744
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -929,7 +990,14 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NetSender
   platform: 19
   scenePathNames:
-  - Assets/Scenes/Test.unity
+  - Assets/Scenes/Battle.unity
+  - Assets/Scenes/EndMenu.unity
   playerPath: D:/MyCode/Oddman/Builds/Oddman.exe

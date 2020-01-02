@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class ButtonHandlers : MonoBehaviour
 {
+    public UIControls uiControls;
+
     public void PlayBattleButtonHandler ()
     {
-        SceneManager.LoadScene("Battle");
+        uiControls.ShowBattle();
     }
 }
