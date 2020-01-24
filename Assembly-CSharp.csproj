@@ -67,7 +67,6 @@
     <Compile Include="Assets\Scripts\CardSystem\CardContainer.cs" />
     <Compile Include="Assets\Scripts\CardSystem\CardSystem.cs" />
     <Compile Include="Assets\Scripts\Death.cs" />
-    <Compile Include="Assets\Scripts\GameData.cs" />
     <Compile Include="Assets\Scripts\Movement\Body.cs" />
     <Compile Include="Assets\Scripts\Movement\CharacterMovement.cs" />
     <Compile Include="Assets\Scripts\Movement\Enemy_SumoController.cs" />
@@ -77,6 +76,11 @@
     <Compile Include="Assets\Scripts\Networking\AvailableMatches.cs" />
     <Compile Include="Assets\Scripts\Networking\MatchMaker.cs" />
     <Compile Include="Assets\Scripts\Networking\NetSender.cs" />
+    <Compile Include="Assets\Scripts\Profiling\ISaver.cs" />
+    <Compile Include="Assets\Scripts\Profiling\MoneySaver.cs" />
+    <Compile Include="Assets\Scripts\Profiling\NameSaver.cs" />
+    <Compile Include="Assets\Scripts\Profiling\Profile.cs" />
+    <Compile Include="Assets\Scripts\Profiling\TrophiesSaver.cs" />
     <Compile Include="Assets\Scripts\UI\ButtonHandlers.cs" />
     <Compile Include="Assets\Scripts\UI\EndMenuUIControls.cs" />
     <Compile Include="Assets\Scripts\UI\UIControls.cs" />

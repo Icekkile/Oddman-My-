@@ -12,6 +12,8 @@ public class EndMenuUIControls : MonoBehaviour
     public Text MoneyBonus;
     public Text TrophiesBonus;
 
+    public Profile profile;
+
     private void OnEnable()
     {
         SetBattleResult(BattleData.ins.matchResult);
@@ -32,12 +34,12 @@ public class EndMenuUIControls : MonoBehaviour
     private void SetMoneyBonus ()
     {
         MoneyBonus.text = $"Money Bonus: {BattleData.ins.MoneyBonus}";
-        GameData.ins.Money += BattleData.ins.MoneyBonus;
+        profile.BonusMoney(BattleData.ins.MoneyBonus);
     }
 
     private void SetTrophiesBonus ()
     {
         TrophiesBonus.text = $"Trophies Bonus: {BattleData.ins.TrophiesBonus}";
-        GameData.ins.Trophies += BattleData.ins.TrophiesBonus;
+        profile.BonusTrophies(BattleData.ins.TrophiesBonus);
     }
 }
