@@ -8,6 +8,9 @@ public class Profile : MonoBehaviour
     ISaver<int> trophiesSaver = new TrophiesSaver();
     ISaver<string> nameSaver = new NameSaver();
 
+    public float saveFreq;
+    private float saveTime;
+
     #region Money Get-Set
     public void SetMoney (int money)
     {
@@ -74,5 +77,24 @@ public class Profile : MonoBehaviour
         moneySaver.LoadParam();
         trophiesSaver.LoadParam();
         nameSaver.LoadParam();
+    }
+
+    private void Start()
+    {
+        LoadAll();
+    }
+
+    private void Update()
+    {
+        if (Time.time >= saveTime)
+        {
+            SaveAll();
+            saveTime += saveFreq;
+        }
+    }
+
+    private void OnApplicationQuit()
+    {
+        SaveAll();
     }
 }
