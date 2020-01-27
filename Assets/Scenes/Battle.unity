@@ -1939,6 +1939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c405b91812edcca4fbd72ec9f27ef1e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveFreq: 60
 --- !u!1 &1545321835
 GameObject:
   m_ObjectHideFlags: 0
