@@ -15,17 +15,16 @@ public class UIControls : MonoBehaviour
 
     public void ShowBattle ()
     {
-        BattleData.ins.StartNew();
+        BattleData.ins.PlayBattle();
         MenuCanvas.SetActive(false);
         EndCanvas.SetActive(false);
 
-        MatchMaker.ins.PlayInternetMatch();
     }
 
     public void ShowEnd ()
     {
         //StopBattle();
-        BattleData.ins.EndThis();
+        BattleData.ins.EndBattle();
         MenuCanvas.SetActive(false);
         EndCanvas.SetActive(true);
     }

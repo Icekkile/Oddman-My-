@@ -1,26 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 
-public class Enemy_SumoController : NetworkBehaviour, IController
+public class Enemy_SumoController : MonoBehaviour, IController
 {
     public Body controller;
 
     private void Update()
     {
         if (controller.actioned) return;
-        CmdSayToBody(FindBody().transform.position);
+        SayToBody(FindBody().transform.position);
     }
 
-    [Command]
-    public void CmdSayToBody(Vector2 destination)
-    {
-        RpcSayToBody(destination);
-    }
-
-    [ClientRpc]
-    public void RpcSayToBody (Vector2 destination)
+    public void SayToBody(Vector2 destination)
     {
         controller.SetTargetPoint(destination);
     }
@@ -43,4 +35,6 @@ public class Enemy_SumoController : NetworkBehaviour, IController
         }
         return nearest;
     }
+
+    
 }
