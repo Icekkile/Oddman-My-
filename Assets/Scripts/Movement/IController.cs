@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IController 
 {
-    void RpcSayToBody(Vector2 destination);
+    void SayToBody(Vector2 destination);
 }

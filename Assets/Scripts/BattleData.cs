@@ -14,6 +14,9 @@ public class BattleData : MonoBehaviour
 {
     public static BattleData ins;
 
+    [SerializeField]
+    private UIControls uiControls;
+
     public Body ClientPlayer;
     public MatchResults matchResult;
     public int TrophiesBonus;
@@ -27,12 +30,14 @@ public class BattleData : MonoBehaviour
         ins = this;
     }
 
-    public void StartNew ()
+    public void PlayBattle ()
     {
         StartTime = Time.time;
+        uiControls.ShowBattle();
+
     }
 
-    public void EndThis ()
+    public void EndBattle ()
     {
         ClientPlayer = null;
         EndTime = StartTime - Time.time;
