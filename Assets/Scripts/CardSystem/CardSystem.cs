@@ -5,6 +5,7 @@ using UnityEngine;
 public class CardSystem : MonoBehaviour
 {
     public static CardSystem ins;
+
     [SerializeField]
     private List<CardContainer> allCardConts;
 
@@ -32,7 +33,7 @@ public class CardSystem : MonoBehaviour
 
     public List<GameObject> FindManyByCard(string card)
     {
-        List<GameObject> result = null;
+        List<GameObject> result = new List<GameObject> ();
 
         foreach (CardContainer c in ins.allCardConts)
         {

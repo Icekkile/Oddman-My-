@@ -78,6 +78,10 @@
     <Compile Include="Assets\Scripts\Profiling\NameSaver.cs" />
     <Compile Include="Assets\Scripts\Profiling\Profile.cs" />
     <Compile Include="Assets\Scripts\Profiling\TrophiesSaver.cs" />
+    <Compile Include="Assets\Scripts\Spawning\BodySpawner.cs" />
+    <Compile Include="Assets\Scripts\Spawning\EnemySpawnPoint.cs" />
+    <Compile Include="Assets\Scripts\Spawning\PlayerSpawnPoint.cs" />
+    <Compile Include="Assets\Scripts\Spawning\SpawnPoint.cs" />
     <Compile Include="Assets\Scripts\UI\ButtonHandlers.cs" />
     <Compile Include="Assets\Scripts\UI\EndMenuUIControls.cs" />
     <Compile Include="Assets\Scripts\UI\UIControls.cs" />

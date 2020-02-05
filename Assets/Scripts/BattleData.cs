@@ -16,6 +16,8 @@ public class BattleData : MonoBehaviour
 
     [SerializeField]
     private UIControls uiControls;
+    [SerializeField]
+    private BodySpawner spawner;
 
     public Body ClientPlayer;
     public MatchResults matchResult;
@@ -34,7 +36,7 @@ public class BattleData : MonoBehaviour
     {
         StartTime = Time.time;
         uiControls.ShowBattle();
-
+        spawner.SpawnBodies();
     }
 
     public void EndBattle ()
