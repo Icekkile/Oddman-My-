@@ -15,7 +15,6 @@ public class UIControls : MonoBehaviour
 
     public void ShowBattle ()
     {
-        BattleData.ins.PlayBattle();
         MenuCanvas.SetActive(false);
         EndCanvas.SetActive(false);
 
