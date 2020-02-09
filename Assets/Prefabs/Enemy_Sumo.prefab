@@ -98,7 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5f9364777db27419f8a1de0efce668, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 899076323779381029}
 --- !u!114 &899076323779381029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,7 +155,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f7138c72f333ee469e3c3e412496ea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startAdd: []
+  startAdd:
+  - Body
+  - Enemy
 --- !u!50 &899076323779381030
 Rigidbody2D:
   serializedVersion: 4

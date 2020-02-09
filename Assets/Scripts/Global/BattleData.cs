@@ -27,9 +27,17 @@ public class BattleData : MonoBehaviour
     private float StartTime;
     private float EndTime;
 
+    public List<GameObject> Enemies;
+
     private void Awake()
     {
         ins = this;
+        Enemies = new List<GameObject>();
+    }
+
+    private void FindEnemies ()
+    {
+        Enemies = CardSystem.ins.FindManyByCard("Enemy");
     }
 
     public void PlayBattle ()
@@ -37,12 +45,31 @@ public class BattleData : MonoBehaviour
         StartTime = Time.time;
         uiControls.ShowBattle();
         spawner.SpawnBodies();
+        FindEnemies();
+        Death.ins.StartNew();
+
+        Death.ins.PlayerDeathEvent += OnPlayerDeath;
+        Death.ins.EnemyDeathEvent += OnEnemyDeath;
     }
 
-    public void EndBattle ()
+    public void OnEnemyDeath (Body killed)
+    {
+        FindEnemies();
+        if (Enemies.Count == 0)
+            EndBattle(MatchResults.Win);
+    }
+
+    public void OnPlayerDeath (Body killed)
+    {
+        EndBattle(MatchResults.Lose);
+    } 
+
+    public void EndBattle (MatchResults result)
     {
         ClientPlayer = null;
         EndTime = StartTime - Time.time;
+        matchResult = result;
+        uiControls.ShowEnd();
         CountBonuses();
     }
 

@@ -34,4 +34,14 @@ public class CardContainer : MonoBehaviour
         CardSystem.ins.AddToList(this);
         m_Cards.AddRange(startAdd);
     }
+
+    public void OnDestroy()
+    {
+        CardSystem.ins.RemoveFromList(this);
+    }
+
+    public void OnDisable()
+    {
+        CardSystem.ins.RemoveFromList(this);
+    }
 }
