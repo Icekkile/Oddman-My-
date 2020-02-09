@@ -20,7 +20,6 @@ public class Body : MonoBehaviour
         this_Gm = gameObject;
         card = GetComponent<CardContainer>();
         pm = GetComponent<CharacterMovement>();
-
     }
 
     public void Update()
@@ -36,9 +35,9 @@ public class Body : MonoBehaviour
         _coolDown = CoolDown;
     }
 
-    public void OnDeath(GameObject killer)
+    public void OnDeath()
     {
-        Death.instance.EInvoke(gameObject, killer);
+        Death.ins.EInvoke(this);
         gameObject.SetActive(false);
     }
 
@@ -50,6 +49,6 @@ public class Body : MonoBehaviour
         if(cc == null || !cc.Contains("Killer"))
             return;
 
-        OnDeath(collision.collider.gameObject);
+        OnDeath();
     }
 }

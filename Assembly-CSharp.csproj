@@ -62,11 +62,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\BattleData.cs" />
-    <Compile Include="Assets\Scripts\CameraBehaviour.cs" />
     <Compile Include="Assets\Scripts\CardSystem\CardContainer.cs" />
     <Compile Include="Assets\Scripts\CardSystem\CardSystem.cs" />
-    <Compile Include="Assets\Scripts\Death.cs" />
+    <Compile Include="Assets\Scripts\Global\BattleData.cs" />
+    <Compile Include="Assets\Scripts\Global\CameraBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Global\Death.cs" />
     <Compile Include="Assets\Scripts\Movement\Body.cs" />
     <Compile Include="Assets\Scripts\Movement\CharacterMovement.cs" />
     <Compile Include="Assets\Scripts\Movement\Enemy_SumoController.cs" />

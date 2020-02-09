@@ -4,18 +4,25 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour, IController
 {
-    public Body controller;
+    [SerializeField]
+    public Body body { get; set; }
 
     private void Start()
     {
-        controller.card.Add("Player");
+        DetermineBody();
+        body.card.Add("Player");
 
-        BattleData.ins.ClientPlayer = controller;
+        BattleData.ins.ClientPlayer = body;
+    }
+
+    public void DetermineBody()
+    {
+        body = gameObject.GetComponent<Body>();
     }
 
     private void Update()
     {
-        if (controller.actioned) return;
+        if (body.actioned) return;
 
         if (Input.GetMouseButton(0))
         {
@@ -26,11 +33,13 @@ public class PlayerController : MonoBehaviour, IController
 
     public void SayToBody (Vector2 destination)
     {
-        controller.SetTargetPoint(destination);
+        body.SetTargetPoint(destination);
     }
 
     public Vector2 ControllerInput()
     {
         return (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
+
+    
 }
