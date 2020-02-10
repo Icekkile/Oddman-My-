@@ -37,6 +37,7 @@ public class Body : MonoBehaviour
 
     public void OnDeath()
     {
+        card.RemoveFromCardSystem();
         Death.ins.EInvoke(this);
         gameObject.SetActive(false);
     }

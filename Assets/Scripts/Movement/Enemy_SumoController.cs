@@ -30,7 +30,7 @@ public class Enemy_SumoController : MonoBehaviour, IController
 
     public GameObject FindBody ()
     {
-        List<GameObject> gms = CardSystem.ins.FindManyByCard("Body");
+        List<GameObject> gms = CardSystem.ins.FindManyByCard("Player");
         gms.Remove(gameObject);
         GameObject nearest = gms[0];
         float dist = Vector2.Distance(body.this_Gm.transform.position, nearest.transform.position);
