@@ -19,7 +19,6 @@ public class BattleData : MonoBehaviour
     [SerializeField]
     private BodySpawner spawner;
 
-    public Body ClientPlayer;
     public MatchResults matchResult;
     public int TrophiesBonus;
     public int MoneyBonus;
@@ -27,12 +26,20 @@ public class BattleData : MonoBehaviour
     private float StartTime;
     private float EndTime;
 
+    public Body Player;
+    public List<GameObject> Bodies;
     public List<GameObject> Enemies;
 
     private void Awake()
     {
         ins = this;
         Enemies = new List<GameObject>();
+        Bodies = new List<GameObject>();
+    }
+
+    private void FindBodies ()
+    {
+        Bodies = CardSystem.ins.FindManyByCard("Body");
     }
 
     private void FindEnemies ()
@@ -45,6 +52,7 @@ public class BattleData : MonoBehaviour
         StartTime = Time.time;
         uiControls.ShowBattle();
         spawner.SpawnBodies();
+        FindBodies();
         FindEnemies();
         Death.ins.StartNew();
 
@@ -66,11 +74,20 @@ public class BattleData : MonoBehaviour
 
     public void EndBattle (MatchResults result)
     {
-        ClientPlayer = null;
+        Player = null;
         EndTime = StartTime - Time.time;
         matchResult = result;
+        DestroyBodies();
         uiControls.ShowEnd();
         CountBonuses();
+    }
+
+    private void DestroyBodies ()
+    {
+        foreach(GameObject go in Bodies)
+        {
+            Destroy(go);
+        }
     }
 
     public void CountBonuses ()

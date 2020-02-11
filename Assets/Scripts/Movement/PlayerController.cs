@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour, IController
         DetermineBody();
         body.card.Add("Player");
 
-        BattleData.ins.ClientPlayer = body;
+        BattleData.ins.Player = body;
     }
 
     public void DetermineBody()

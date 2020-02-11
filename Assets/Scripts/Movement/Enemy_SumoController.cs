@@ -20,7 +20,10 @@ public class Enemy_SumoController : MonoBehaviour, IController
     private void Update()
     {
         if (body.actioned) return;
-        SayToBody(FindBody().transform.position);
+        GameObject foundBody = FindBody();
+        if (foundBody == null)
+            return;
+        SayToBody(foundBody.transform.position);
     }
 
     public void SayToBody(Vector2 destination)
@@ -30,22 +33,7 @@ public class Enemy_SumoController : MonoBehaviour, IController
 
     public GameObject FindBody ()
     {
-        List<GameObject> gms = CardSystem.ins.FindManyByCard("Player");
-        gms.Remove(gameObject);
-        GameObject nearest = gms[0];
-        float dist = Vector2.Distance(body.this_Gm.transform.position, nearest.transform.position);
-        foreach (GameObject gm in gms)
-        {
-            float temp = Vector2.Distance(body.this_Gm.transform.position, gm.transform.position);
-            if (temp < dist)
-            {
-                dist = temp;
-                nearest = gm;
-            }
-
-        }
-        return nearest;
+        GameObject go = CardSystem.ins.FindByCard("Player");
+        return go;
     }
-
-    
 }
