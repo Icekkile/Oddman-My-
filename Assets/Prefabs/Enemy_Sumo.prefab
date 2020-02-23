@@ -113,9 +113,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab8c0527f698d5746b52eb8942eee56e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  config: {fileID: 0}
+  config: {fileID: 11400000, guid: 8628c4a013d004445a984e01ba863110, type: 2}
   pm: {fileID: 899076323779381028}
-  card: {fileID: 0}
+  card: {fileID: 5357561244120761373}
 --- !u!114 &899076323779381028
 MonoBehaviour:
   m_ObjectHideFlags: 0

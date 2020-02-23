@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Body), typeof(CardContainer))]
 public class Controller : MonoBehaviour
 {
     public Body body;
@@ -17,13 +18,13 @@ public class Controller : MonoBehaviour
 
     public virtual void Init ()
     {
-        DetermineBody();
-        Stamina = config.Stamina;
+        DetermineRequirements();
     }
 
-    public virtual void DetermineBody()
+    public virtual void DetermineRequirements()
     {
         body = gameObject.GetComponent<Body>();
+        Stamina = config.Stamina;
     }
 
     public virtual void SayToBody(Vector2 destination)

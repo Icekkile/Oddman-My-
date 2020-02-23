@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CardContainer), typeof(Controller))]
 public class Body : MonoBehaviour
 {
     public GameObject this_Gm { get; private set; }
@@ -18,11 +19,16 @@ public class Body : MonoBehaviour
 
     private void Start()
     {
+        DetermineRequirements();
+
+        card.Add("Body");
+    }
+
+    public void DetermineRequirements()
+    {
         this_Gm = gameObject;
         card = GetComponent<CardContainer>();
         pm = GetComponent<CharacterMovement>();
-
-        card.Add("Body");
         CoolDown = config.CoolDown;
     }
 
