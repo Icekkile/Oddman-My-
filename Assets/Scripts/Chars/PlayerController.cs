@@ -2,44 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour, IController
+public class PlayerController : Controller
 {
-    [SerializeField]
-    public Body body { get; set; }
-
-    private void Start()
+    public override void Init()
     {
-        DetermineBody();
-        body.card.Add("Player");
-
+        base.Init();
         BattleData.ins.Player = body;
-    }
-
-    public void DetermineBody()
-    {
-        body = gameObject.GetComponent<Body>();
+        body.card.Add("Player");
     }
 
     private void Update()
     {
         if (body.actioned) return;
-
         if (Input.GetMouseButton(0))
         {
             Vector2 temp = ControllerInput();
             SayToBody(temp);
         }
-    }
 
-    public void SayToBody (Vector2 destination)
-    {
-        body.SetTargetPoint(destination);
+        StaminaRegen(0);
     }
 
     public Vector2 ControllerInput()
     {
         return (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
-
-    
 }

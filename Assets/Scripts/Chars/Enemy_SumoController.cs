@@ -2,19 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_SumoController : MonoBehaviour, IController
+public class Enemy_SumoController : Controller
 {
-    public Body body { get; set; }
-
-    private void Start()
+    public override void Init()
     {
-        DetermineBody();
+        base.Init();
         body.card.Add("Enemy");
-    }
-
-    public void DetermineBody()
-    {
-        body = gameObject.GetComponent<Body>();
     }
 
     private void Update()
@@ -24,11 +17,8 @@ public class Enemy_SumoController : MonoBehaviour, IController
         if (foundBody == null)
             return;
         SayToBody(foundBody.transform.position);
-    }
 
-    public void SayToBody(Vector2 destination)
-    {
-        body.SetTargetPoint(destination);
+        StaminaRegen(0);
     }
 
     public GameObject FindBody ()

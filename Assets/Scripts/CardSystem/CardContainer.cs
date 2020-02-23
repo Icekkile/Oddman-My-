@@ -9,6 +9,8 @@ public class CardContainer : MonoBehaviour
 
     public void Add (string card)
     {
+        if (m_Cards == null)
+            m_Cards = new List<string>();
         m_Cards.Add(card);
     }
 

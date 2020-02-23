@@ -6,20 +6,24 @@ public class Body : MonoBehaviour
 {
     public GameObject this_Gm { get; private set; }
 
+    public BodyConfig config;
     public CharacterMovement pm;
 
-    public float CoolDown;
+    private float CoolDown;
     private float _coolDown;
 
     public CardContainer card;
 
     public bool actioned { get; private set; }
 
-    private void Awake()
+    private void Start()
     {
         this_Gm = gameObject;
         card = GetComponent<CardContainer>();
         pm = GetComponent<CharacterMovement>();
+
+        card.Add("Body");
+        CoolDown = config.CoolDown;
     }
 
     public void Update()
