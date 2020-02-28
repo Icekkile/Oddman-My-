@@ -7,6 +7,7 @@ public class Body : MonoBehaviour
 {
     public GameObject this_Gm { get; private set; }
 
+    public Controller controller;
     public BodyConfig config;
     public CharacterMovement pm;
 
@@ -17,7 +18,7 @@ public class Body : MonoBehaviour
 
     public bool actioned { get; private set; }
 
-    private void Start()
+    private void OnEnable()
     {
         DetermineRequirements();
 
@@ -27,6 +28,7 @@ public class Body : MonoBehaviour
     public void DetermineRequirements()
     {
         this_Gm = gameObject;
+        controller = GetComponent<Controller>();
         card = GetComponent<CardContainer>();
         pm = GetComponent<CharacterMovement>();
         CoolDown = config.CoolDown;

@@ -65,7 +65,9 @@
     <Compile Include="Assets\Scripts\CardSystem\CardContainer.cs" />
     <Compile Include="Assets\Scripts\CardSystem\CardSystem.cs" />
     <Compile Include="Assets\Scripts\Chars\Body.cs" />
-    <Compile Include="Assets\Scripts\Chars\BodyConfig.cs" />
+    <Compile Include="Assets\Scripts\Chars\Configs\BodyConfig.cs" />
+    <Compile Include="Assets\Scripts\Chars\Configs\ChestConfig.cs" />
+    <Compile Include="Assets\Scripts\Chars\Configs\ConfigDisplay.cs" />
     <Compile Include="Assets\Scripts\Chars\Controller.cs" />
     <Compile Include="Assets\Scripts\Chars\Enemy_SumoController.cs" />
     <Compile Include="Assets\Scripts\Chars\PlayerController.cs" />
@@ -85,6 +87,7 @@
     <Compile Include="Assets\Scripts\Spawning\SpawnPoint.cs" />
     <Compile Include="Assets\Scripts\UI\ButtonHandlers.cs" />
     <Compile Include="Assets\Scripts\UI\EndMenuUIControls.cs" />
+    <Compile Include="Assets\Scripts\UI\StaminaSlider.cs" />
     <Compile Include="Assets\Scripts\UI\UIControls.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/MyCode/Oddman/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

@@ -29,14 +29,20 @@ public class Controller : MonoBehaviour
 
     public virtual void SayToBody(Vector2 destination)
     {
+        if (!IsStamina(0))
+            return;
         StaminaDecrease(0);
         body.SetTargetPoint(destination);
     }
 
+    public bool IsStamina (float bonusFactor)
+    {
+        return Stamina >= 0 + config.decreaseOnMove + bonusFactor;
+    }
+
     public virtual void StaminaDecrease(float bonusFactor)
     {
-        if (Stamina >= 0 + config.decreaseOnMove)
-            Stamina -= config.decreaseOnMove + bonusFactor;
+        Stamina -= config.decreaseOnMove + bonusFactor;
     }
 
     public virtual void StaminaRegen(float bonusFactor)

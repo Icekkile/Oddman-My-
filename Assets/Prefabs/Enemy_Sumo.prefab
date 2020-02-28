@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 899076323779381024}
   - component: {fileID: 899076323779381027}
+  - component: {fileID: 4946599840193158567}
   - component: {fileID: 899076323779381026}
   - component: {fileID: 899076323779381029}
   - component: {fileID: 899076323779381028}
@@ -86,6 +87,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4946599840193158567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899076323779381019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 722eac610f2153d44a967932657b6579, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bodyConfig: {fileID: 11400000, guid: 8628c4a013d004445a984e01ba863110, type: 2}
+  chestConfig: {fileID: 11400000, guid: b8e134bfb1513404899e3949ded41dba, type: 2}
 --- !u!114 &899076323779381026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,6 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab8c0527f698d5746b52eb8942eee56e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 0}
   config: {fileID: 11400000, guid: 8628c4a013d004445a984e01ba863110, type: 2}
   pm: {fileID: 899076323779381028}
   card: {fileID: 5357561244120761373}

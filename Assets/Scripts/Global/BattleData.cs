@@ -50,8 +50,8 @@ public class BattleData : MonoBehaviour
     public void PlayBattle ()
     {
         StartTime = Time.time;
-        uiControls.ShowBattle();
         spawner.SpawnBodies();
+        uiControls.ShowBattle();
         FindBodies();
         FindEnemies();
         Death.ins.StartNew();
