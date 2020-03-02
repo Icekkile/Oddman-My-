@@ -20,6 +20,15 @@ public class ConfigDisplay : MonoBehaviour
         
         controller.config = bodyConfig;
         body.config = bodyConfig;
+        movement.massBonus = GetMassBonus();
+        
+    }
+
+    private float GetMassBonus ()
+    {
+        float massBonus = 0;
+        massBonus += chestConfig.Mass;
+        return massBonus;
     }
 
     private void Init ()

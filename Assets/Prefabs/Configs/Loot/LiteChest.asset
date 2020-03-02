@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: LiteChest
   m_EditorClassIdentifier: 
   Name: LiteChest
-  Mass: -5
+  Mass: -10

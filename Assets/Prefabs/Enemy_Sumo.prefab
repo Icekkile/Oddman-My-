@@ -145,10 +145,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 899076323779381030}
-  Speed: 8
-  MinTargetSpeed: 16
-  MaxTargetSpeed: 40
-  afterDashSpeedParam: 3
+  Speed: 5
+  DashTime: 1
+  punchParam: 100
+  massBonus: 0
 --- !u!114 &899076323779381031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,12 +156,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 899076323779381019}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb9845abd36a1f44dbc9d56064025bf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  punchParam: 0
+  punchParam: 100
 --- !u!114 &5357561244120761373
 MonoBehaviour:
   m_ObjectHideFlags: 0

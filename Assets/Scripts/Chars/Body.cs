@@ -41,9 +41,9 @@ public class Body : MonoBehaviour
         actioned = _coolDown > 0;
     }
 
-    public void SetTargetPoint(Vector2 TargetPoint)
+    public void Move(Vector2 TargetPoint)
     {
-        pm.SetTargetPoint(TargetPoint);
+        pm.Move(TargetPoint);
         _coolDown = CoolDown;
     }
 

@@ -32,7 +32,7 @@ public class Controller : MonoBehaviour
         if (!IsStamina(0))
             return;
         StaminaDecrease(0);
-        body.SetTargetPoint(destination);
+        body.Move(destination);
     }
 
     public bool IsStamina (float bonusFactor)

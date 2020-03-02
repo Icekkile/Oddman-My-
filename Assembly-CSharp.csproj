@@ -70,12 +70,12 @@
     <Compile Include="Assets\Scripts\Chars\Configs\ConfigDisplay.cs" />
     <Compile Include="Assets\Scripts\Chars\Controller.cs" />
     <Compile Include="Assets\Scripts\Chars\Enemy_SumoController.cs" />
+    <Compile Include="Assets\Scripts\Chars\Movement\CharacterMovement.cs" />
+    <Compile Include="Assets\Scripts\Chars\Movement\PunchAction.cs" />
     <Compile Include="Assets\Scripts\Chars\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Global\BattleData.cs" />
     <Compile Include="Assets\Scripts\Global\CameraBehaviour.cs" />
     <Compile Include="Assets\Scripts\Global\Death.cs" />
-    <Compile Include="Assets\Scripts\Movement\CharacterMovement.cs" />
-    <Compile Include="Assets\Scripts\Movement\PunchAction.cs" />
     <Compile Include="Assets\Scripts\Profiling\ISaver.cs" />
     <Compile Include="Assets\Scripts\Profiling\MoneySaver.cs" />
     <Compile Include="Assets\Scripts\Profiling\NameSaver.cs" />
