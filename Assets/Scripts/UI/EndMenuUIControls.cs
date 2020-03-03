@@ -14,12 +14,39 @@ public class EndMenuUIControls : MonoBehaviour
 
     public Profile profile;
 
+    [SerializeField]
+    private float MenuTime;
+    private float menuTime;
+    public bool canContiune { get; private set; }
+
     private void OnEnable()
     {
         SetBattleResult(BattleData.ins.matchResult);
         SetMoneyBonus();
         SetTrophiesBonus();
+        SetMenuTime();
+        canContiune = false;
     }
+
+    private void Update()
+    {
+        CountTime(); //region: Time
+    }
+
+    #region Time
+    private void CountTime()
+    {
+        if (menuTime > 0)
+            menuTime -= Time.deltaTime;
+        else if (menuTime <= 0)
+            canContiune = true;
+    }
+
+    private void SetMenuTime ()
+    {
+        menuTime = MenuTime;
+    }
+    #endregion
 
     private void SetBattleResult (MatchResults result)
     {

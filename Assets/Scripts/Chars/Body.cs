@@ -51,7 +51,7 @@ public class Body : MonoBehaviour
     {
         card.RemoveFromCardSystem();
         Death.ins.EInvoke(this);
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -315,6 +315,7 @@ MonoBehaviour:
   MoneyBonus: {fileID: 1060586786}
   TrophiesBonus: {fileID: 17621329}
   profile: {fileID: 1489323205}
+  MenuTime: 5
 --- !u!114 &86475722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1106,6 +1107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a25a1375c126fd94cad5ef99ae36262f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endControls: {fileID: 86475721}
   MenuCanvas: {fileID: 876074545}
   BattleCanvas: {fileID: 638105233}
   EndCanvas: {fileID: 86475720}
@@ -2748,16 +2750,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 376082951}
     m_Modifications:
-    - target: {fileID: 7891373375585885840, guid: 3dc8f4afbebcf414493c6d797398aa1a,
-        type: 3}
-      propertyPath: startAdd.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7891373375585885840, guid: 3dc8f4afbebcf414493c6d797398aa1a,
-        type: 3}
-      propertyPath: startAdd.Array.data[3]
-      value: PlayerStaminaSlider
-      objectReference: {fileID: 0}
     - target: {fileID: 8697223773655450958, guid: 3dc8f4afbebcf414493c6d797398aa1a,
         type: 3}
       propertyPath: m_Name
@@ -2867,6 +2859,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891373375585885840, guid: 3dc8f4afbebcf414493c6d797398aa1a,
+        type: 3}
+      propertyPath: startAdd.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891373375585885840, guid: 3dc8f4afbebcf414493c6d797398aa1a,
+        type: 3}
+      propertyPath: startAdd.Array.data[3]
+      value: PlayerStaminaSlider
       objectReference: {fileID: 0}
     - target: {fileID: 8697223773827013544, guid: 3dc8f4afbebcf414493c6d797398aa1a,
         type: 3}
