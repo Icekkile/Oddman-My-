@@ -11,50 +11,56 @@ public class CharacterMovement : MonoBehaviour
     public float punchParam;
     public float massBonus;
 
-    private Vector2 moveVector;
+    public Vector2 moveVector;
     private float dashTime;
 
     private void OnEnable()
     {
-        if (massBonus < 0)
-            massBonus = 1 / massBonus;
-        if (massBonus == 0)
-            massBonus = 1;
+        rb.mass += massBonus;
     }
-
-    private void Update()
-    {
-        if (dashTime > 0)
-        {
-            dashTime -= Time.deltaTime;
-            rb.gravityScale = 0;
-        }
-        else
-        {
-            rb.gravityScale = 1;
-        }
-        
-    }
-
-    public void Move (Vector2 target)
+    public void OrderToMove (Vector2 target)
     {
         FindMoveVector(target);
-        rb.AddForce(moveVector * Speed / massBonus, ForceMode2D.Impulse);
         dashTime = DashTime;
     }
 
     private void FindMoveVector (Vector2 vector)
     {
         moveVector = vector - (Vector2)rb.transform.position;
+        moveVector = (moveVector / DashTime / rb.mass) * Speed;
     }
 
+    private void Update()
+    {
+        if (dashTime <= 0)
+        {
+            rb.gravityScale = 1;
+            return;
+        }
+
+        dashTime -= Time.deltaTime;
+        rb.gravityScale = 0;
+
+        Move();
+    }
+
+    private void Move ()
+    {
+        rb.velocity = moveVector;
+    }
+
+
+    //punch
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        rb.velocity = Vector2.zero;
+        dashTime = 0;
+
         if (collision.gameObject.GetComponent<Body>() == null) return;
 
         Vector2 normal = collision.GetContact(0).normal;
         float Impulse = collision.GetContact(0).normalImpulse;
 
-        rb.AddForce(normal * Impulse * punchParam);
+        rb.AddForce(normal * Impulse * punchParam / massBonus);
     }
 }

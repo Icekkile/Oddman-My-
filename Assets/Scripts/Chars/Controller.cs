@@ -8,6 +8,7 @@ public class Controller : MonoBehaviour
     public Body body;
 
     public BodyConfig config;
+    public float bonusOnMove;
     
     public float Stamina;
 

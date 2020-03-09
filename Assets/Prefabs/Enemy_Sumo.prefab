@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 899076323779381030}
-  Speed: 5
+  Speed: 7
   DashTime: 1
   punchParam: 100
   massBonus: 0

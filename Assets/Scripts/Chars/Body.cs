@@ -43,7 +43,7 @@ public class Body : MonoBehaviour
 
     public void Move(Vector2 TargetPoint)
     {
-        pm.Move(TargetPoint);
+        pm.OrderToMove(TargetPoint);
         _coolDown = CoolDown;
     }
 

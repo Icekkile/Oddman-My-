@@ -20,8 +20,9 @@ public class ConfigDisplay : MonoBehaviour
         
         controller.config = bodyConfig;
         body.config = bodyConfig;
-        movement.massBonus = GetMassBonus();
-        
+        float massBonus = GetMassBonus();
+        movement.massBonus = massBonus;
+        controller.bonusOnMove = massBonus;
     }
 
     private float GetMassBonus ()
