@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb9dd2337556d9b469f2812c2e58ce9a, type: 3}
   m_Name: EnemyConfig
   m_EditorClassIdentifier: 
+  chest: {fileID: 11400000, guid: b8e134bfb1513404899e3949ded41dba, type: 2}
+  weapon: {fileID: 0}
   Stamina: 100
   decreaseOnMove: 10
   staminaRegen: 5

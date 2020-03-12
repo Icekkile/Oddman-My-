@@ -7,14 +7,15 @@ public class Body : MonoBehaviour
 {
     public GameObject this_Gm { get; private set; }
 
-    public Controller controller;
     public BodyConfig config;
-    public CharacterMovement pm;
+    public Controller controller;
+    public CharacterMovement movement;
+    public CardContainer card;
+    public Weapon weapon;
+    public ConfigDisplay configDisplay;
 
     private float CoolDown;
     private float _coolDown;
-
-    public CardContainer card;
 
     public bool actioned { get; private set; }
 
@@ -28,9 +29,22 @@ public class Body : MonoBehaviour
     public void DetermineRequirements()
     {
         this_Gm = gameObject;
-        controller = GetComponent<Controller>();
-        card = GetComponent<CardContainer>();
-        pm = GetComponent<CharacterMovement>();
+
+        if (controller == null)
+            controller = GetComponent<Controller>();
+
+        if (card == null)
+            card = GetComponent<CardContainer>();
+
+        if (movement == null)
+            movement = GetComponent<CharacterMovement>();
+
+        if (weapon == null)
+            weapon = GetComponent<Weapon>();
+
+        if (configDisplay == null)
+            configDisplay = GetComponent<ConfigDisplay>();
+
         CoolDown = config.CoolDown;
     }
 
@@ -43,7 +57,7 @@ public class Body : MonoBehaviour
 
     public void Move(Vector2 TargetPoint)
     {
-        pm.OrderToMove(TargetPoint);
+        movement.OrderToMove(TargetPoint);
         _coolDown = CoolDown;
     }
 

@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 899076323779381027}
   - component: {fileID: 4946599840193158567}
   - component: {fileID: 899076323779381026}
+  - component: {fileID: -8890055353334251193}
   - component: {fileID: 899076323779381029}
   - component: {fileID: 899076323779381028}
-  - component: {fileID: 899076323779381031}
   - component: {fileID: 5357561244120761373}
   - component: {fileID: 899076323779381030}
   - component: {fileID: 899076323779381016}
@@ -100,7 +100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodyConfig: {fileID: 11400000, guid: 8628c4a013d004445a984e01ba863110, type: 2}
-  chestConfig: {fileID: 11400000, guid: b8e134bfb1513404899e3949ded41dba, type: 2}
 --- !u!114 &899076323779381026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,7 +114,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 0}
   config: {fileID: 11400000, guid: 8628c4a013d004445a984e01ba863110, type: 2}
+  bonusOnMove: 0
   Stamina: 0
+--- !u!114 &-8890055353334251193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899076323779381019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fec253652d9cd0408fc1e5a1805e953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &899076323779381029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,10 +140,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab8c0527f698d5746b52eb8942eee56e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
   config: {fileID: 11400000, guid: 8628c4a013d004445a984e01ba863110, type: 2}
-  pm: {fileID: 899076323779381028}
+  controller: {fileID: 899076323779381026}
+  movement: {fileID: 899076323779381028}
   card: {fileID: 5357561244120761373}
+  weapon: {fileID: -8890055353334251193}
+  configDisplay: {fileID: 4946599840193158567}
 --- !u!114 &899076323779381028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,19 +163,7 @@ MonoBehaviour:
   DashTime: 1
   punchParam: 100
   massBonus: 0
---- !u!114 &899076323779381031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 899076323779381019}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb9845abd36a1f44dbc9d56064025bf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  punchParam: 100
+  moveVector: {x: 0, y: 0}
 --- !u!114 &5357561244120761373
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,37 +6,33 @@ using UnityEngine;
 public class ConfigDisplay : MonoBehaviour
 {
     public BodyConfig bodyConfig;
-    public ChestConfig chestConfig;
-    //public WeaponConfig weaponConfig;
 
-    private Controller controller;
     private Body body;
-    private PunchAction punch;
-    private CharacterMovement movement;
 
     private void OnEnable()
     {
         Init();
-        
-        controller.config = bodyConfig;
+
         body.config = bodyConfig;
+        body.controller.config = bodyConfig;
+        
         float massBonus = GetMassBonus();
-        movement.massBonus = massBonus;
-        controller.bonusOnMove = massBonus;
+        body.movement.massBonus = massBonus;
+        body.controller.bonusOnMove = massBonus;
+
+        body.weapon.SetWeapon(bodyConfig.weapon);
     }
 
     private float GetMassBonus ()
     {
         float massBonus = 0;
-        massBonus += chestConfig.Mass;
+        massBonus += bodyConfig.chest.Mass;
         return massBonus;
     }
 
     private void Init ()
     {
-        controller = GetComponent<Controller>();
-        body = GetComponent<Body>();
-        punch = GetComponent<PunchAction>();
-        movement = GetComponent<CharacterMovement>();
+        if (body == null)
+            body = GetComponent<Body>();
     }
 }
