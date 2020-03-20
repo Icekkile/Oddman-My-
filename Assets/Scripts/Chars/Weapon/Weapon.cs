@@ -4,26 +4,32 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    WeaponConfig weapon;
+    Body thisBody;
+    WeaponConfig weaponConfig;
 
     IWeaponUser weaponUser;
     float useTime;
 
+    public Weapon (Body bodyON)
+    {
+        thisBody = bodyON;
+    }
+
     public void SetWeapon(WeaponConfig config)
     {
-        if (weapon == null)
+        if (config == null)
             return;
 
-        weapon = config;
+        weaponConfig = config;
 
-        if (weapon is LRConfig)
-            weaponUser = new LRUser();
+        if (weaponConfig is LRConfig)
+            weaponUser = new LRUser(thisBody.gameObject, (weaponConfig as LRConfig).staminaDamage);
 
-        else if (weapon is MeleeConfig)
+        else if (weaponConfig is MeleeConfig)
             weaponUser = new MeleeUser();
 
         //Now we can attack instantly
-        useTime = weapon.speed;
+        useTime = weaponConfig.speed;
     }
 
     private void Update()
@@ -33,7 +39,7 @@ public class Weapon : MonoBehaviour
 
         CountTime();
 
-        if (useTime >= weapon.speed)
+        if (useTime >= weaponConfig.speed)
             Attack();
         
     }
@@ -46,7 +52,7 @@ public class Weapon : MonoBehaviour
 
     private void CountTime ()
     {
-        if (useTime <= weapon.timeMax)
+        if (useTime <= weaponConfig.timeMax)
             useTime += Time.deltaTime;
     }
 }

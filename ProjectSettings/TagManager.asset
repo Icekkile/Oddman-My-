@@ -6,7 +6,10 @@ TagManager:
   tags:
   - Witness
   - Character
-  - Char_Killer
+  - PlayerSpawnPoint
+  - EnemySpawnPoint
+  - Killer
+  - Enemy
   layers:
   - Default
   - TransparentFX

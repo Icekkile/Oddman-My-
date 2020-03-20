@@ -21,7 +21,7 @@ public class CameraBehaviour : MonoBehaviour
     {
         if (BattleData.ins.Player == null) return;
 
-        GameObject temp = BattleData.ins.Player.this_Gm;
+        GameObject temp = BattleData.ins.Player.gameObject;
 
         plPos = temp.transform.position;
         CameraMove();

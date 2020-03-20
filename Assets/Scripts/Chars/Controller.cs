@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Body), typeof(CardContainer))]
+[RequireComponent(typeof(Body))]
 public class Controller : MonoBehaviour
 {
     public Body body;

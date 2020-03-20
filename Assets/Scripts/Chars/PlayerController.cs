@@ -8,7 +8,6 @@ public class PlayerController : Controller
     {
         base.Init();
         BattleData.ins.Player = body;
-        body.card.Add("Player");
     }
 
     private void Update()

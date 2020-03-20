@@ -7,7 +7,6 @@ public class Enemy_SumoController : Controller
     public override void Init()
     {
         base.Init();
-        body.card.Add("Enemy");
     }
 
     private void Update()
@@ -23,7 +22,7 @@ public class Enemy_SumoController : Controller
 
     public GameObject FindBody ()
     {
-        GameObject go = CardSystem.ins.FindByCard("Player");
+        GameObject go = BattleData.ins.Player.gameObject;
         return go;
     }
 }

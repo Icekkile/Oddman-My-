@@ -16,7 +16,7 @@ public class StaminaSlider : MonoBehaviour
 
     private void Update()
     {
-        if (BattleData.ins.Player.controller == null)
+        if (BattleData.ins.Player == null)
             return;
         watchingController = BattleData.ins.Player.controller;
 

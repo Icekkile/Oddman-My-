@@ -12,15 +12,13 @@ GameObject:
   - component: {fileID: 767147292162229523}
   - component: {fileID: 6381880905153326077}
   - component: {fileID: 6963594470938742613}
-  - component: {fileID: 7362064707870344159}
   - component: {fileID: 6381880905153326076}
-  - component: {fileID: 1299825194029152645}
   - component: {fileID: 6381880905153326070}
   - component: {fileID: 6381880905153326073}
   - component: {fileID: 6381880905153326075}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Character
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,21 +81,8 @@ MonoBehaviour:
   config: {fileID: 11400000, guid: 1777fbc8121bcc64aa5e5c880dd15d28, type: 2}
   controller: {fileID: 6381880905153326077}
   movement: {fileID: 6381880905153326076}
-  card: {fileID: 1299825194029152645}
-  weapon: {fileID: 7362064707870344159}
+  weapon: {fileID: 0}
   configDisplay: {fileID: 767147292162229523}
---- !u!114 &7362064707870344159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6381880905153326079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fec253652d9cd0408fc1e5a1805e953, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6381880905153326076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,19 +101,6 @@ MonoBehaviour:
   punchParam: 100
   massBonus: 0
   moveVector: {x: 0, y: 0}
---- !u!114 &1299825194029152645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6381880905153326079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f7138c72f333ee469e3c3e412496ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startAdd: []
 --- !u!212 &6381880905153326070
 SpriteRenderer:
   m_ObjectHideFlags: 0

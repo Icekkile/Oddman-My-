@@ -9,9 +9,9 @@ public class ConfigDisplay : MonoBehaviour
 
     private Body body;
 
-    private void OnEnable()
+    public void SetConfigs(Body bodyON)
     {
-        Init();
+        body = bodyON;
 
         body.config = bodyConfig;
         body.controller.config = bodyConfig;
@@ -28,11 +28,5 @@ public class ConfigDisplay : MonoBehaviour
         float massBonus = 0;
         massBonus += bodyConfig.chest.Mass;
         return massBonus;
-    }
-
-    private void Init ()
-    {
-        if (body == null)
-            body = GetComponent<Body>();
     }
 }

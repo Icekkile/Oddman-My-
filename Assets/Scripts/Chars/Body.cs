@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CardContainer), typeof(Controller))]
+public enum BodyType
+{
+    Player,
+    Enemy
+}
+
+[RequireComponent(typeof(Controller))]
 public class Body : MonoBehaviour
 {
-    public GameObject this_Gm { get; private set; }
+    public BodyType? bodyType { get; private set; }
 
     public BodyConfig config;
     public Controller controller;
     public CharacterMovement movement;
-    public CardContainer card;
     public Weapon weapon;
     public ConfigDisplay configDisplay;
 
@@ -21,31 +26,36 @@ public class Body : MonoBehaviour
 
     private void OnEnable()
     {
-        DetermineRequirements();
-
-        card.Add("Body");
+        SetClasses();
+        configDisplay.SetConfigs(this);
+        SetParams();
     }
 
-    public void DetermineRequirements()
+    private void SetParams ()
     {
-        this_Gm = gameObject;
+        if (bodyType == null)
+        {
+            if (gameObject.tag == "Player")
+                bodyType = BodyType.Player;
+            else if (gameObject.tag == "Enemy")
+                bodyType = BodyType.Enemy;
+        }
+
+        CoolDown = config.CoolDown;
+    }
+
+    public void SetClasses()
+    {
+        weapon = new Weapon(this);
 
         if (controller == null)
             controller = GetComponent<Controller>();
 
-        if (card == null)
-            card = GetComponent<CardContainer>();
-
         if (movement == null)
             movement = GetComponent<CharacterMovement>();
 
-        if (weapon == null)
-            weapon = GetComponent<Weapon>();
-
         if (configDisplay == null)
             configDisplay = GetComponent<ConfigDisplay>();
-
-        CoolDown = config.CoolDown;
     }
 
     public void Update()
@@ -63,7 +73,6 @@ public class Body : MonoBehaviour
 
     public void OnDeath()
     {
-        card.RemoveFromCardSystem();
         Death.ins.EInvoke(this);
         Destroy(gameObject);
     }
@@ -71,9 +80,8 @@ public class Body : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject gm = collision.collider.gameObject;
-        CardContainer cc = gm.GetComponent<CardContainer>();
 
-        if(cc == null || !cc.Contains("Killer"))
+        if(gm.tag != "Killer")
             return;
 
         OnDeath();

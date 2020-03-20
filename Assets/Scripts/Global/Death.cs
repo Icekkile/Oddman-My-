@@ -22,9 +22,9 @@ public class Death : MonoBehaviour
 
     public void EInvoke (Body killed)
     {
-        if (killed.card.Contains("Player") && ins.PlayerDeathEvent != null)
+        if (killed == BattleData.ins.Player && ins.PlayerDeathEvent != null)
             ins.PlayerDeathEvent(killed);
-        else if (killed.card.Contains("Enemy") && ins.EnemyDeathEvent != null)
+        else if (BattleData.ins.Enemies.Contains(killed) && ins.EnemyDeathEvent != null)
             ins.EnemyDeathEvent(killed);
     }
 

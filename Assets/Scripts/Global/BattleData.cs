@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,33 +27,35 @@ public class BattleData : MonoBehaviour
     private float EndTime;
 
     public Body Player;
-    public List<GameObject> Bodies;
-    public List<GameObject> Enemies;
+    public List<Body> Bodies;
+    public List<Body> Enemies;
 
     private void Awake()
     {
         ins = this;
-        Enemies = new List<GameObject>();
-        Bodies = new List<GameObject>();
+        Enemies = new List<Body>();
+        Bodies = new List<Body>();
     }
 
-    private void FindBodies ()
+    private void ExecuteBodies (List<GameObject> spawnedBodies)
     {
-        Bodies = CardSystem.ins.FindManyByCard("Body");
+        Bodies = spawnedBodies.Select((x) => x.GetComponent<Body>()).ToList();
+
+        //player GM is always first in the spawnedBodies
+        Player = Bodies[0];
+
+        for (int i = 1; i < Bodies.Count; i++)
+            Enemies.Add(Bodies[i]);
     }
 
-    private void FindEnemies ()
-    {
-        Enemies = CardSystem.ins.FindManyByCard("Enemy");
-    }
 
     public void PlayBattle ()
     {
         StartTime = Time.time;
-        spawner.SpawnBodies();
+
+        ExecuteBodies(spawner.SpawnBodies());
+
         uiControls.ShowBattle();
-        FindBodies();
-        FindEnemies();
         Death.ins.StartNew();
 
         Death.ins.PlayerDeathEvent += OnPlayerDeath;
@@ -62,7 +64,8 @@ public class BattleData : MonoBehaviour
 
     public void OnEnemyDeath (Body killed)
     {
-        FindEnemies();
+        Enemies.Remove(killed);
+
         if (Enemies.Count == 0)
             EndBattle(MatchResults.Win);
     }
@@ -84,10 +87,11 @@ public class BattleData : MonoBehaviour
 
     private void DestroyBodies ()
     {
-        foreach(GameObject go in Bodies)
+        foreach(Body body in Bodies)
         {
-            Destroy(go);
+            Destroy(body.gameObject);
         }
+        Bodies.Clear();
     }
 
     public void CountBonuses ()

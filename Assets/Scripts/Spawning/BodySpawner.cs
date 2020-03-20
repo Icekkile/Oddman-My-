@@ -1,56 +1,65 @@
-﻿using System.Collections;
+﻿using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BodySpawner : MonoBehaviour
 {
-    GameObject playerSP;
-    List<GameObject> enemySPs;
+    GameObject playerSpawnPrefab;
+    List<GameObject> enemySpawnPrefabs;
 
-    public void SpawnBodies ()
+    public List<GameObject> SpawnBodies ()
     {
-        SpawnPlayer();
-        SpawnEnemies();
+        List<GameObject> spawnedBodies = new List<GameObject>();
+        
+        spawnedBodies.Add(SpawnPlayer());
+        spawnedBodies.AddRange(SpawnEnemies());
+
+        return spawnedBodies;
     }
 
-    private void SpawnPlayer ()
+
+    //returns Player
+    private GameObject SpawnPlayer ()
     {
-        playerSP = LocatePlayerSpawnPoint();
-        PlayerSpawnPoint spawnPoint = playerSP.GetComponent<PlayerSpawnPoint>();
+        playerSpawnPrefab = LocatePlayerSpawnPoint();
+        PlayerSpawnPoint spawnPoint = playerSpawnPrefab.GetComponent<PlayerSpawnPoint>();
         GameObject prefab = spawnPoint.playerPrefab;
         Vector2 point = (Vector2)spawnPoint.point.position;
 
-        Instantiate(prefab, point, Quaternion.identity);
+        return Instantiate(prefab, point, Quaternion.identity);
 
     }
 
-    private void SpawnEnemies ()
+    private List<GameObject> SpawnEnemies ()
     {
-        enemySPs = LocateEnemySpawnPoints();
-        List<EnemySpawnPoint> spawnPoints = new List<EnemySpawnPoint> ();
-        List<GameObject> prefabs = new List<GameObject> ();
-        List<Vector2> points = new List<Vector2> ();
+        enemySpawnPrefabs = LocateEnemySpawnPoints();
+        List<GameObject> enemies = new List<GameObject>();
 
-        for (int i = 0; i < enemySPs.Count; i++)
+        for (int i = 0; i < enemySpawnPrefabs.Count; i++)
         {
-            spawnPoints.Add(enemySPs[i].GetComponent<EnemySpawnPoint>());
-            prefabs.Add(spawnPoints[i].enemyPrefab);
-            points.Add((Vector2)spawnPoints[i].point.position);
-        }
+            EnemySpawnPoint spawnPoint = new EnemySpawnPoint();
+            spawnPoint = enemySpawnPrefabs[i].GetComponent<EnemySpawnPoint>();
 
-        for (int i = 0; i < enemySPs.Count; i++)
-        {
-            Instantiate(prefabs[i], points[i], Quaternion.identity);
+            GameObject prefab = new GameObject();
+            prefab = spawnPoint.enemyPrefab;
+
+            Vector2 point = (Vector2)spawnPoint.point.position;
+
+            GameObject gm = Instantiate(prefab, point, Quaternion.identity);
+            enemies.Add(gm);
         }
+        return enemies;
     }
 
     private GameObject LocatePlayerSpawnPoint ()
     {
-        return CardSystem.ins.FindByCard("PlayerSpawnPoint");
+        //WILL BE DELETED IN FUTURE
+        return GameObject.FindGameObjectWithTag("PlayerSpawnPoint");
     }
 
     private List<GameObject> LocateEnemySpawnPoints ()
     {
-        return CardSystem.ins.FindManyByCard("EnemySpawnPoint");
+        //WILL BE DELETED IN FUTURE
+        return GameObject.FindGameObjectsWithTag("EnemySpawnPoint").ToList<GameObject>();
     }
 }

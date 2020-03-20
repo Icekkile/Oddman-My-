@@ -62,8 +62,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\CardSystem\CardContainer.cs" />
-    <Compile Include="Assets\Scripts\CardSystem\CardSystem.cs" />
     <Compile Include="Assets\Scripts\Chars\Body.cs" />
     <Compile Include="Assets\Scripts\Chars\Configs\BodyConfig.cs" />
     <Compile Include="Assets\Scripts\Chars\Configs\ChestConfig.cs" />

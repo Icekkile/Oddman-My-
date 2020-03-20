@@ -12,15 +12,13 @@ GameObject:
   - component: {fileID: 899076323779381027}
   - component: {fileID: 4946599840193158567}
   - component: {fileID: 899076323779381026}
-  - component: {fileID: -8890055353334251193}
   - component: {fileID: 899076323779381029}
   - component: {fileID: 899076323779381028}
-  - component: {fileID: 5357561244120761373}
   - component: {fileID: 899076323779381030}
   - component: {fileID: 899076323779381016}
   m_Layer: 0
   m_Name: Enemy_Sumo
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,18 +114,6 @@ MonoBehaviour:
   config: {fileID: 11400000, guid: 8628c4a013d004445a984e01ba863110, type: 2}
   bonusOnMove: 0
   Stamina: 0
---- !u!114 &-8890055353334251193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 899076323779381019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fec253652d9cd0408fc1e5a1805e953, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &899076323779381029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,8 +129,7 @@ MonoBehaviour:
   config: {fileID: 11400000, guid: 8628c4a013d004445a984e01ba863110, type: 2}
   controller: {fileID: 899076323779381026}
   movement: {fileID: 899076323779381028}
-  card: {fileID: 5357561244120761373}
-  weapon: {fileID: -8890055353334251193}
+  weapon: {fileID: 0}
   configDisplay: {fileID: 4946599840193158567}
 --- !u!114 &899076323779381028
 MonoBehaviour:
@@ -164,19 +149,6 @@ MonoBehaviour:
   punchParam: 100
   massBonus: 0
   moveVector: {x: 0, y: 0}
---- !u!114 &5357561244120761373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 899076323779381019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f7138c72f333ee469e3c3e412496ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startAdd: []
 --- !u!50 &899076323779381030
 Rigidbody2D:
   serializedVersion: 4

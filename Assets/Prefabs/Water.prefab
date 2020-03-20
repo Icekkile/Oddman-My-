@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6775905008257162138}
   m_Layer: 0
   m_Name: Water
-  m_TagString: Char_Killer
+  m_TagString: Killer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
