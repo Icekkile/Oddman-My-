@@ -7,7 +7,7 @@ public class CharacterMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
 
-    public float SpeedMax;
+    public float MaxMagnitude;
 
     public float Speed;
     public float DashTime;
@@ -31,8 +31,14 @@ public class CharacterMovement : MonoBehaviour
     private void FindMoveVector(Vector2 targetPoint)
     {
         moveVector = targetPoint - (Vector2)rb.transform.position;
+        
+        if (moveVector.magnitude > MaxMagnitude)
+        {
+            float temp = MaxMagnitude / moveVector.magnitude;
+            moveVector *= temp;
+        }
+
         float speed = Speed / DashTime / massBonus;
-        speed = Mathf.Clamp(speed, speed, SpeedMax);
 
         moveVector = moveVector * speed;
     }

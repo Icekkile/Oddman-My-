@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6381880905153326075}
-  SpeedMax: 7
+  MaxMagnitude: 10
   Speed: 7
   DashTime: 1
   punchParam: 100
