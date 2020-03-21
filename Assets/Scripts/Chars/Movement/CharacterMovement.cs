@@ -1,10 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
+
+    public float SpeedMax;
 
     public float Speed;
     public float DashTime;
@@ -14,33 +17,39 @@ public class CharacterMovement : MonoBehaviour
     public Vector2 moveVector;
     private float dashTime;
 
-    private void OnEnable()
+    private bool dashing;
+
+    private float afterDashSpeedParam = 2;
+
+    public void OrderToMove (Vector2 targetPoint)
     {
-        rb.mass += massBonus;
-    }
-    public void OrderToMove (Vector2 target)
-    {
-        FindMoveVector(target);
+        FindMoveVector(targetPoint);
         dashTime = DashTime;
+        dashing = true;
     }
 
-    private void FindMoveVector (Vector2 vector)
+    private void FindMoveVector(Vector2 targetPoint)
     {
-        moveVector = vector - (Vector2)rb.transform.position;
-        moveVector = (moveVector / DashTime / rb.mass) * Speed;
+        moveVector = targetPoint - (Vector2)rb.transform.position;
+        float speed = Speed / DashTime / massBonus;
+        speed = Mathf.Clamp(speed, speed, SpeedMax);
+
+        moveVector = moveVector * speed;
     }
 
     private void Update()
     {
+        if (!dashing)
+            return;
+
         if (dashTime <= 0)
         {
-            rb.gravityScale = 1;
+            dashing = false;
+            rb.velocity /= afterDashSpeedParam;
             return;
         }
 
         dashTime -= Time.deltaTime;
-        rb.gravityScale = 0;
-
         Move();
     }
 
@@ -48,7 +57,6 @@ public class CharacterMovement : MonoBehaviour
     {
         rb.velocity = moveVector;
     }
-
 
     //punch
     public void OnCollisionEnter2D(Collision2D collision)
