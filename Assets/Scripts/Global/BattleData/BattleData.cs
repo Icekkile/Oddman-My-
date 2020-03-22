@@ -18,6 +18,8 @@ public class BattleData : MonoBehaviour
     private UIControls uiControls;
     [SerializeField]
     private BodySpawner spawner;
+    [SerializeField]
+    private ArenaBuilder arenaBuilder;
 
     public MatchResults matchResult;
     public int TrophiesBonus;
@@ -29,6 +31,8 @@ public class BattleData : MonoBehaviour
     public Body Player;
     public List<Body> Bodies;
     public List<Body> Enemies;
+
+    public List<GameObject> bodySPs;
 
     private void Awake()
     {
@@ -53,7 +57,10 @@ public class BattleData : MonoBehaviour
     {
         StartTime = Time.time;
 
-        ExecuteBodies(spawner.SpawnBodies());
+        arenaBuilder.Build();
+        bodySPs = arenaBuilder.bodySPs;
+
+        ExecuteBodies(spawner.SpawnBodies(bodySPs));
 
         uiControls.ShowBattle();
         Death.ins.StartNew();
@@ -78,7 +85,7 @@ public class BattleData : MonoBehaviour
     public void EndBattle (MatchResults result)
     {
         Player = null;
-        EndTime = StartTime - Time.time;
+        EndTime = Time.time - StartTime;
         matchResult = result;
         DestroyBodies();
         uiControls.ShowEnd();

@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Map Editor\ArenaConfig.cs" />
     <Compile Include="Assets\Scripts\Chars\Body.cs" />
     <Compile Include="Assets\Scripts\Chars\Configs\BodyConfig.cs" />
     <Compile Include="Assets\Scripts\Chars\Configs\ChestConfig.cs" />
@@ -78,7 +79,8 @@
     <Compile Include="Assets\Scripts\Chars\Weapon\LRUser.cs" />
     <Compile Include="Assets\Scripts\Chars\Weapon\MeleeUser.cs" />
     <Compile Include="Assets\Scripts\Chars\Weapon\Weapon.cs" />
-    <Compile Include="Assets\Scripts\Global\BattleData.cs" />
+    <Compile Include="Assets\Scripts\Global\ArenaBuilder.cs" />
+    <Compile Include="Assets\Scripts\Global\BattleData\BattleData.cs" />
     <Compile Include="Assets\Scripts\Global\CameraBehaviour.cs" />
     <Compile Include="Assets\Scripts\Global\Death.cs" />
     <Compile Include="Assets\Scripts\Profiling\ISaver.cs" />

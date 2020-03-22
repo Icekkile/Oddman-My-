@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a20b183f3815d4aa88ee115b3c2a49, type: 3}
+  m_Name: BaseArena
+  m_EditorClassIdentifier: 
+  Arena:
+  - {fileID: 4870620429538397428, guid: 9317d1afa4ada834b929c4088efbd9c0, type: 3}
+  - {fileID: 6730696164873988844, guid: 1089d672625ada048917da012f07828c, type: 3}
+  - {fileID: 9052019463785594241, guid: 49e206ab4f4daf040a1832cb924d9738, type: 3}
+  SpawnPoints:
+  - {fileID: 3732306383149454645, guid: eb4a71f3bc5b7b343a5e81e29574d76b, type: 3}
+  - {fileID: 3486949221515770952, guid: 760499a62a370a944ac5f41b4e3b75aa, type: 3}
